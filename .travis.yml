@@ -9,7 +9,7 @@ before_script:
 - npm install -g @angular/cli
 - npm install
 
-script: ng build --base-href davidmiles-angular
+script: ng build --base-href davidmiles-angular -prod
 
 deploy:
   provider: pages
