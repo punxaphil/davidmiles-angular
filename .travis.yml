@@ -11,10 +11,12 @@ before_script:
 
 script: ng build -prod
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: dist
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master
+addons:
+  ssh_known_hosts: ssh.davidmiles.se
+  apt:
+    packages:
+      - sshpass
+after_success:
+  - export SSHPASS=$SSH_PASS
+  - sshpass -e rsync --archive --delete --chmod=Du=rwx,go=rx,Fu=rwx,og=rx "dist/" "$SSH_USER@ssh.davidmiles.se:/www/angular/"
+
