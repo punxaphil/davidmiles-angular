@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+
+body {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 1.1em;
+  color: dimgray;
+  height: 100%;
+  background-color: #d6d6d6;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: darkred;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 900px;
+  background-color: white;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.musicServices img {
+  margin: 20px;
+}
+
+.main,
+.mainnav,
+.navbar {
+  padding: 0px;
+}
+
+.navbar {
+  height: 128px;
+}
+
+#sidebar {
+  height: 100%;
+  overflow-y: auto;
+  padding-left: 30px;
+}
+
+#sidebar > a {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: dimgray;
+  line-height: 28px;
+}
+
+#sidebar > a.active {
+  color: darkred;
+}
+
+.maincontent {
+  margin-top: 127px;
+}
+
+.logo {
+  width: 300px;
+  max-width: 60%;
+}
+
+
+
+
