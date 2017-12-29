@@ -1,9 +1,38 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="assets/nar_mitt_hjarta_stod_i_brand-1.jpg">
+<!--<div class="main">
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <img id="loggedInLogo" src="assets/images/guitar-burning.gif" data-bind="visible: loggedIn">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle animated rollIn" data-toggle="offcanvas" data-target=".sidebar-nav"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+        <img class="drawerPhoto" src="assets/images/drawer_photo.jpg"/>
+        <img class="logo" src="assets/images/logo.png"/>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+        <a routerLink="/">Hem</a><br />
+        <a routerLink="/om">Om</a>
+      </div>
+
+      <div class="col-xs-12 col-sm-10 mainContent" >
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>-->
+<div class="row">
+  <div class="col-sm-2">
+    <a routerLink="/">Hem</a><br />
+    <a routerLink="/om">Om</a>
+  </div>
+  <div class="col-sm-10">
+    <router-outlet></router-outlet>
+  </div>
 </div>
+
+
+
 
 
