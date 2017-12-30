@@ -1,14 +1,105 @@
 [
   {
-    "place": "Sikrot",
-    "date": "2017-12-24"
+    "date": "2017-02-11",
+    "place": "Odd Fellow Ängelholm"
   },
   {
-    "place": "Hills",
-    "date": "2018-01-17"
+    "date": "2017-02-23",
+    "place": "Tolkar Peter LeMarc på Sikrot i Ängelholm"
   },
   {
-    "place": "Byagården",
-    "date": "2018-05-23"
+    "date": "2017-03-04",
+    "place": "Privat 50 års kalas Falkenberg"
+  },
+  {
+    "date": "2017-04-22",
+    "place": "Privat fest Torup"
+  },
+  {
+    "date": "2017-05-04",
+    "place": "Tolkar Bruce Springsteen på Sikrot i Ängelholm"
+  },
+  {
+    "date": "2017-05-05",
+    "place": "Mårtenssons Halmstad"
+  },
+  {
+    "date": "2017-05-20",
+    "place": "Bröllop"
+  },
+  {
+    "date": "2017-06-02",
+    "place": "Företagbokning Halmstad"
+  },
+  {
+    "date": "2017-06-08",
+    "place": "Svenska sommarhits på Sikrots Ängelholm"
+  },
+  {
+    "date": "2017-06-10",
+    "place": "Privat 40 års fest"
+  },
+  {
+    "date": "2017-07-05",
+    "place": "Harrys Kungsbacka"
+  },
+  {
+    "date": "2017-07-06",
+    "place": "Proggkväll på Sikrots Ängelholm"
+  },
+  {
+    "date": "2017-07-07",
+    "place": "Privat Trönninge"
+  },
+  {
+    "date": "2017-07-12",
+    "place": "Harrys Kungsbacka"
+  },
+  {
+    "date": "2017-07-14",
+    "place": "Strandbaren Åsa"
+  },
+  {
+    "date": "2017-07-15",
+    "place": "Restaurang Strandkanten Ugglarp"
+  },
+  {
+    "date": "2017-07-19",
+    "place": "Med band. Hotel Skansen Öland \"Allsång på skansen\""
+  },
+  {
+    "date": "2017-07-29",
+    "place": "bröllop dagtid. Gottskär."
+  },
+  {
+    "date": "2017-07-29",
+    "place": "Restaurang Strandkanten Ugglarp"
+  },
+  {
+    "date": "2017-08-02",
+    "place": "Harrys Kungsbacka"
+  },
+  {
+    "date": "2017-08-03",
+    "place": "Viskväll Sikrot Ängelholm"
+  },
+  {
+    "date": "2017-09-16",
+    "place": "Privat 60 årsfest"
+  },
+  {
+    "date": "2017-09-30",
+    "place": "Oktoberfest Privat"},
+  {
+    "date": "2017-10-26",
+    "place": "Tolkar Lars Winnerbäck. Sikrot Ängelholm"
+  },
+  {
+    "date": "2017-12-06",
+    "place": "Privat.  Falkenberg"
+  },
+  {
+    "date": "2017-12-31",
+    "place": "Privat.  Bunkeflo"
   }
 ]
