@@ -47,7 +47,8 @@ a:link, a:visited, a:hover, a:active {
   line-height: 28px;
 }
 
-#sidebar > a.active {
+#sidebar > a.active,
+.red {
   color: darkred;
 }
 
@@ -58,6 +59,18 @@ a:link, a:visited, a:hover, a:active {
 .logo {
   width: 300px;
   max-width: 60%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.marginBottom {
+  margin-bottom: 10px;
+}
+
+.marginTop {
+  margin-top: 10px;
 }
 
 

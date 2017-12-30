@@ -1,0 +1,33 @@
+<div class="media">
+  <div class="media-body">
+    <div class="marginBottom bigger" *ngIf="tour.firstGig">
+      <div class="red">Nästa spelning {{tour.firstGig.distance}}</div>
+      <div>Datum: {{tour.firstGig.date}}</div>
+      <div>Plats: {{tour.firstGig.place}}</div>
+    </div>
+
+    <div>
+      <div class="red">Kommande</div>
+      <div *ngIf="!tour.upcomingGigs?.length > 0">Inga spelningar inbokade</div>
+      <div class="marginBottom" *ngFor="let gig of tour.upcomingGigs">
+        <div class="text-nowrap">
+          <span class="bold">{{gig.date}}</span>
+          <span>{{gig.place}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="tour.historyGigs">
+      <div class="red">Tidigare</div>
+      <div *ngFor="let gig of tour.historyGigs">
+        <div class="text-nowrap">
+          <span class="bold">{{gig.date}}</span>
+          <span>{{gig.place}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src="assets/images/spelplan.jpg" class="ml-3 img-fluid" />
+</div>
+
+
