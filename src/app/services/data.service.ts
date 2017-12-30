@@ -6,7 +6,7 @@ import * as GitHub from 'github-api';
 @Injectable()
 export class DataService {
   private gh: GitHub;
-  private repo: Repository;
+  private repo: any;
   constructor() {
     this.gh = new GitHub();
     this.repo = this.gh.getRepo('johanfrick', 'davidmiles-angular');
