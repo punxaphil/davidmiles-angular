@@ -8,7 +8,8 @@ import {  ITour } from '../models';
   styleUrls: ['./tour.component.css']
 })
 export class TourComponent implements OnInit {
-   tour: ITour = {};
+  tour: ITour = {};
+
 
    constructor(private dataService: DataService) {
       this.dataService.getTour(updatedTour => {this.tour = updatedTour});

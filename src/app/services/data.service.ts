@@ -48,6 +48,7 @@ export class DataService {
       tour.upcomingGigs = this.orderByArray(this.upcomingGigs, "dateObject");
       tour.historyGigs = this.orderByArray(this.historyGigs, "dateObject");
       tour.firstGig = first;
+      tour.hasUpcomingGigs = this.upcomingGigs.length > 0;
       callback(tour);
     });
     

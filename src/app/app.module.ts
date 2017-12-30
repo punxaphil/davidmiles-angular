@@ -8,11 +8,13 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { TourComponent } from './tour/tour.component';
 import { DataService } from "./services/data.service";
+import { ContactComponent } from './contact/contact.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'om', component: AboutComponent },
   { path: 'spelplan', component: TourComponent },
+  { path: 'kontakt', component: ContactComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    TourComponent
+    TourComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

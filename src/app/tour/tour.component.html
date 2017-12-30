@@ -8,7 +8,7 @@
 
     <div>
       <div class="red">Kommande</div>
-      <div *ngIf="!tour.upcomingGigs?.length > 0">Inga spelningar inbokade</div>
+      <div *ngIf="!tour.hasUpcomingGigs">Inga spelningar inbokade</div>
       <div class="marginBottom" *ngFor="let gig of tour.upcomingGigs">
         <div class="text-nowrap">
           <span class="bold">{{gig.date}}</span>

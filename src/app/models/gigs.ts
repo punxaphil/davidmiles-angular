@@ -9,4 +9,5 @@ export interface ITour {
   upcomingGigs?: Array<IGig>[];
   historyGigs?: Array<IGig>[];
   firstGig?: IGig;
+  hasUpcomingGigs?: boolean;
 }
