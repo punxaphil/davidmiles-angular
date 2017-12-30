@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response  } from '@angular/http';
 import { IGig, ITour } from '../models';
 import 'rxjs/add/operator/map';
 
@@ -51,7 +51,6 @@ export class DataService {
       tour.hasUpcomingGigs = this.upcomingGigs.length > 0;
       callback(tour);
     });
-    
   }
 
   dayDiff(first: Date, second: Date): number {
@@ -77,5 +76,9 @@ export class DataService {
       }
       return 0;
     });
+  }
+
+  getPodCast() {
+    return this.http.get('assets/json/podcast.json').map((res: Response) =>res.json());
   }
 }

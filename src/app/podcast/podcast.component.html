@@ -1,3 +1,12 @@
-<p>
-  podcast works!
-</p>
+
+<img class="img-fluid" src="assets/images/podcast.jpg" />
+
+<div class="podcasts">
+  <div class="" *ngIf="podcasts.length === 0" >Inga podcasts tillgängliga</div>
+  <div *ngFor="let p of podcasts">
+    <div class="">
+      <a href="{{p.url}}" target="_blank">{{p.title}}</a>
+    </div>
+  </div>
+</div>
+

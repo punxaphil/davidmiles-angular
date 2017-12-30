@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service'
+import { IPodcast } from '../models';
 
 @Component({
   selector: 'app-podcast',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PodcastComponent implements OnInit {
 
-  constructor() { }
+  podcasts: Array<IPodcast> = [];
+
+  constructor(private dataService: DataService) {
+    this.dataService.getPodCast().subscribe(data => {
+      this.podcasts = data;
+      this.podcasts.forEach(podcast => podcast.url = 'http://sjowallmiles.podomatic.com/entry/' + podcast.podomaticId);
+    });
+  }
 
   ngOnInit() {
   }
-
 }
