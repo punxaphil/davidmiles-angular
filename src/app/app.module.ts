@@ -10,6 +10,7 @@ import { TourComponent } from './tour/tour.component';
 import { DataService } from "./services/data.service";
 import { ContactComponent } from './contact/contact.component';
 import { PodcastComponent } from './podcast/podcast.component';
+import { DiscographyComponent } from './discography/discography.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'spelplan', component: TourComponent },
   { path: 'kontakt', component: ContactComponent },
   { path: 'podcast', component: PodcastComponent },
+  { path: 'discografi', component: DiscographyComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     AboutComponent,
     TourComponent,
     ContactComponent,
-    PodcastComponent
+    PodcastComponent,
+    DiscographyComponent
   ],
   imports: [
     BrowserModule,
