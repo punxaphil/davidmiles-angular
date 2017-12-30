@@ -1,69 +1,61 @@
-import { Injectable } from '@angular/core';
-import { Http, Response  } from '@angular/http';
-import { IGig, ITour } from '../models';
+import {Injectable} from '@angular/core';
+import {IGig, ITour} from '../models';
 import 'rxjs/add/operator/map';
+import * as GitHub from 'github-api';
 
 @Injectable()
 export class DataService {
-  
-  private upcomingGigs: Array<IGig> = [];
-  private historyGigs: Array<IGig> = [];
-  private text: string;
+  private gh: GitHub;
 
-  constructor(private http: Http) {
+  constructor() {
+    this.gh = new GitHub();
   }
 
-  getTour(callback) {
-
-    this.http.get('assets/txt/spelplan.txt').subscribe(data => {
-      this.upcomingGigs = new Array<IGig>();
-      this.historyGigs = new Array<IGig>();
-      var now = new Date();
-      now.setHours(0, 0, 0, 0);
-      var gigLines = data.text();
-      gigLines.split('\n').forEach(line => {
-        var gig: IGig = {};
-        gig.date = this.parseDate(line);
-        if (gig.date) {
-          gig.place = line.replace(gig.date, '');
-          gig.dateObject = new Date(gig.date);
-          gig.dateObject.setHours(0, 0, 0, 0);
-          if (now <= gig.dateObject) {
-            this.upcomingGigs.push(gig);
-          } else {
-            this.historyGigs.unshift(gig);
-          }
-        }
-      });
-      let first = this.upcomingGigs[0];
-      if (first) {
-        var diff = this.dayDiff(now, first.dateObject);
-        if (diff === 0) {
-          first.distance = 'är idag!';
-        } else {
-          first.distance = 'är om ' + diff + ' dagar';
-        }
-      }
-      const tour: ITour = {};
-      tour.upcomingGigs = this.orderByArray(this.upcomingGigs, "dateObject");
-      tour.historyGigs = this.orderByArray(this.historyGigs, "dateObject");
-      tour.firstGig = first;
-      tour.hasUpcomingGigs = this.upcomingGigs.length > 0;
-      callback(tour);
-    });
-  }
-
-  dayDiff(first: Date, second: Date): number {
+  static dayDiff(first: Date, second: Date): number {
     return (second.getTime() - first.getTime()) / (1000 * 60 * 60 * 24);
   }
+  getTour(callback) {
+    const repo = this.gh.getRepo('johanfrick', 'davidmiles-angular');
+    repo.getContents('data', 'spelplan.json', true)
+      .then(value => {
+        const gigs: Array<IGig> = value.data;
+        const tour = this.createTour(gigs);
+        callback(tour);
+      }, reason => {
+        console.error(reason); // Error!
+        callback({});
+      });
+  }
 
-  parseDate(line: string): string {
-    const matches = line.match(/\d\d\d\d-\d\d-\d\d( \d\d?:\d\d)?/);
-    if (matches && matches.length) {
-      const gig = {};
-      return matches[0];
+  private createTour(gigs: Array<IGig>) {
+    const upcomingGigs: Array<IGig> = [];
+    const historyGigs: Array<IGig> = [];
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    gigs.forEach(gig => {
+      gig.dateObject = new Date(gig.date);
+      gig.dateObject.setHours(0, 0, 0, 0);
+      if (now <= gig.dateObject) {
+        upcomingGigs.push(gig);
+      } else {
+        historyGigs.unshift(gig);
+      }
+    });
+    const first = upcomingGigs[0];
+    if (first) {
+      const diff = DataService.dayDiff(now, first.dateObject);
+      if (diff === 0) {
+        first.distance = 'är idag!';
+      } else {
+        first.distance = 'är om ' + diff + ' dagar';
+      }
     }
-    return undefined;
+    const tour: ITour = {};
+    tour.upcomingGigs = this.orderByArray(upcomingGigs, 'dateObject');
+    tour.historyGigs = this.orderByArray(historyGigs, 'dateObject');
+    tour.firstGig = first;
+    tour.hasUpcomingGigs = upcomingGigs.length > 0;
+    return tour;
   }
 
   orderByArray(values: any[], orderType: any) {
@@ -76,9 +68,5 @@ export class DataService {
       }
       return 0;
     });
-  }
-
-  getPodCast() {
-    return this.http.get('assets/json/podcast.json').map((res: Response) =>res.json());
   }
 }

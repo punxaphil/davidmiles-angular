@@ -9,7 +9,6 @@ import { AboutComponent } from './about/about.component';
 import { TourComponent } from './tour/tour.component';
 import { DataService } from "./services/data.service";
 import { ContactComponent } from './contact/contact.component';
-import { PodcastComponent } from './podcast/podcast.component';
 import { DiscographyComponent } from './discography/discography.component';
 
 const appRoutes: Routes = [
@@ -17,7 +16,6 @@ const appRoutes: Routes = [
   { path: 'om', component: AboutComponent },
   { path: 'spelplan', component: TourComponent },
   { path: 'kontakt', component: ContactComponent },
-  { path: 'podcast', component: PodcastComponent },
   { path: 'discografi', component: DiscographyComponent },
   { path: '**', component: HomeComponent }
 ];
@@ -29,7 +27,6 @@ const appRoutes: Routes = [
     AboutComponent,
     TourComponent,
     ContactComponent,
-    PodcastComponent,
     DiscographyComponent
   ],
   imports: [
