@@ -1,28 +1,28 @@
 import {Injectable} from '@angular/core';
-import {IGig, ITour} from '../models';
+import {IGig, ITour, IAlbum} from '../models';
 import 'rxjs/add/operator/map';
 import * as GitHub from 'github-api';
 
 @Injectable()
 export class DataService {
   private gh: GitHub;
-
+  private repo: Repository;
   constructor() {
     this.gh = new GitHub();
+    this.repo = this.gh.getRepo('johanfrick', 'davidmiles-angular');
   }
 
   static dayDiff(first: Date, second: Date): number {
     return (second.getTime() - first.getTime()) / (1000 * 60 * 60 * 24);
   }
   getTour(callback) {
-    const repo = this.gh.getRepo('johanfrick', 'davidmiles-angular');
-    repo.getContents('data', 'spelplan.json', true)
+    this.repo.getContents('data', 'spelplan.json', true)
       .then(value => {
         const gigs: Array<IGig> = value.data;
         const tour = this.createTour(gigs);
         callback(tour);
       }, reason => {
-        console.error(reason); // Error!
+        console.error(reason);
         callback({});
       });
   }
@@ -68,5 +68,16 @@ export class DataService {
       }
       return 0;
     });
+  }
+
+  getAlbums(callback) {
+    this.repo.getContents('data', 'albums.json', true)
+      .then(value => {
+        const albums: Array<IAlbum> = value.data;
+        callback(albums);
+      }, reason => {
+        console.error(reason);
+        callback({});
+      });
   }
 }

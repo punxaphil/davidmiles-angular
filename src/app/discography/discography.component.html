@@ -1,23 +1,25 @@
 <div *ngIf="albums.length === 0">
   Inga album upplagda för tillfället. Återkom gärna senare!
 </div>
-<div *ngFor="let album of albums">
-  <div class="card discography animated fadeIn" data-bind="if: hasImage">
-    <div class="discoInfo">
-      <div class="discoYear" data-bind="text: date"></div>
-      <div horizontal layout justified>
-        <div class="discoTitle" data-bind="text: title"></div>
-        <div class="discoTrackCount"><span data-bind="text: trackCount() + ' spår'"></span></div>
+<div class="d-flex flex-wrap">
+  <div class="m-3" *ngFor="let album of albums">
+    <div class="discography animated fadeIn" *ngIf="album.hasImage">
+      <div class="discoInfo">
+        <div class="discoYear">{{album.date}}</div>
+        <div>
+          <div class="discoTitle">{{album.title}}</div>
+          <div class="discoTrackCount"><span>{{album.trackCount}} spår</span></div>
+        </div>
       </div>
-    </div>
-    <div style="background-size: 100%" data-bind="style: {backgroundImage: image, width: width, height: height}">
-    </div>
-    <div class="discoLinks" horizontal end-justified layout center>
-      <a href="" target="_blank" data-bind="visible: shopUrl, attr:{href: shopUrl}">
-        <img class="shoppingCart" src="img/shopping-cart.png" border="0">
-      </a>
-      <a href="" target="_blank" data-bind="attr:{href: iTunesUrl}"><img src="img/itunes.png" border="0"></a>
-      <a href="" target="_blank" data-bind="attr:{href: spotifyUrl}"><img src="img/spotify-logo-32x32-no-tagline.png" border="0"></a>
+      <div style="background-size: 100%" [ngStyle]="{ 'background-image': 'url(' + album.image + ')', 'width': album.width , 'height': album.height }" >
+      </div>
+      <div class=" d-flex discoLinks justify-content-center">
+        <a href="" target="_blank" [hidden]="!album.shopUrl" [href]="album.shopUrl">
+          <img class="shoppingCart" src="assets/images/shopping-cart.png" border="0" />
+        </a>
+        <a href="" target="_blank" [href]="album.iTunesUrl"><img src="assets/images/itunes.png" border="0" /></a>
+        <a href="" target="_blank" [href]="album.spotifyUrl"><img src="assets/images/spotify-logo-32x32-no-tagline.png" border="0" /></a>
+      </div>
     </div>
   </div>
 </div>
