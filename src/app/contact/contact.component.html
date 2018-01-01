@@ -8,7 +8,7 @@
       Telefon: <a href="tel:0706-979604">0706-979604</a>
     </div>
   </div>
-  
+
  <img src="assets/images/press/david_press_18.jpg">
 
 
@@ -17,14 +17,13 @@
     <div><a href="http://www.hansarenmusik.se" target="_blank">www.hansarenmusik.se</a></div>
   </div>
 
-  <div horizontal layout class="marginBottom d-flex">
+  <div class="marginBottom d-flex">
     <div>Sidan är skapad av </div>
     <a class="spaced" href="https://se.linkedin.com/in/johanfrick">Johan Frick</a>
   </div>
 
-  <div horizontal layout>
-    <div>Administatör: </div>
-    <!--<a class="spaced" href="" data-bind="click: login, visible: !isLoggedIn()">Logga in</a>
-    <a class="spaced" href="" data-bind="click: logout, visible: isLoggedIn()">Logga ut</a>-->
+  <div>
+    Administratör: <a class="href" *ngIf="!isLoggedIn" routerLink="/login">Logga in</a>
+    <a class="href" *ngIf="isLoggedIn" (click)="logout()">Logga ut</a>
   </div>
 </div>

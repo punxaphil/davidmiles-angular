@@ -1,0 +1,7 @@
+<div class="login">
+  <label for="password">Användarnamn</label>
+  <input id="username" type="text" autofocus [(ngModel)]="username" [ngClass]="unauthorized && 'redBackground'">
+  <label for="password">Lösenord</label>
+  <input id="password" type="password" [(ngModel)]="password" [ngClass]="unauthorized && 'redBackground'">
+    <button class="marginTop" (click)="submit()">LOGGA IN</button>
+</div>
