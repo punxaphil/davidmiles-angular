@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthorizationService} from '../services/authorization.service';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private username = '';
-  private password = '';
-  private unauthorized: boolean;
+  username = '';
+  password = '';
+  unauthorized: boolean;
 
-  constructor(private router: Router, private authorizationService: AuthorizationService) { }
+  constructor(private router: Router, private authorizationService: AuthorizationService) {
+  }
 
   ngOnInit() {
   }
 
   submit() {
-    const authorized = this.authorizationService.login(this.username, this.password)
+    this.authorizationService.login(this.username, this.password)
       .then(() => this.router.navigateByUrl('/'), () => this.unauthorized = true);
   }
 

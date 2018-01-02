@@ -7,7 +7,7 @@ import {AuthorizationService} from './services/authorization.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private isLoggedIn: boolean;
+  isLoggedIn: boolean;
 
   constructor(private authorizationService: AuthorizationService) {
 

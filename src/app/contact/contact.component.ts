@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  private isLoggedIn: boolean;
+  isLoggedIn: boolean;
 
   constructor(private router: Router, private authorizationService: AuthorizationService) {
   }
