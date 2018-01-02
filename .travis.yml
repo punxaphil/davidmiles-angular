@@ -17,4 +17,4 @@ addons:
     packages:
       - sshpass
 after_success:
-  - ./.travis-deploy.sh
+  - sh .travis-deploy.sh
