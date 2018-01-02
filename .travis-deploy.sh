@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 echo "Branch is $TRAVIS_BRANCH"
 if [ "$TRAVIS_BRANCH" == "master" ]; then
   export SSHPASS=$SSH_PASS
