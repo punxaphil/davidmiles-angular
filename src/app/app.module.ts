@@ -8,9 +8,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { TourComponent } from './tour/tour.component';
-import { DataService } from "./services/data.service";
+import { DataService } from './services/data.service';
 import { ContactComponent } from './contact/contact.component';
 import { DiscographyComponent } from './discography/discography.component';
+import {AuthorizationService} from './services/authorization.service';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 import { VideoComponent } from './video/video.component';
 
 const appRoutes: Routes = [
@@ -20,6 +23,7 @@ const appRoutes: Routes = [
   { path: 'kontakt', component: ContactComponent },
   { path: 'discografi', component: DiscographyComponent },
   { path: 'video', component: VideoComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -32,14 +36,16 @@ const appRoutes: Routes = [
     ContactComponent,
     DiscographyComponent,
     VideoComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
-    EmbedVideo.forRoot()
+    EmbedVideo.forRoot(),
+    FormsModule
   ],
-  providers: [DataService],
+  providers: [DataService, AuthorizationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

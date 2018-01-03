@@ -1,0 +1,9 @@
+#loggedInLogo {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0.9;
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+}
