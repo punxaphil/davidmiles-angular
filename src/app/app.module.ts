@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { EmbedVideo } from 'ngx-embed-video';
+import { MatCardModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
     EmbedVideo.forRoot(),
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [DataService, AuthorizationService],
   bootstrap: [AppComponent]
