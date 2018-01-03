@@ -2,12 +2,13 @@ import {Injectable} from '@angular/core';
 import {IGig, ITour, IAlbum} from '../models';
 import 'rxjs/add/operator/map';
 import * as GitHub from 'github-api';
+import { Http, RequestOptions, URLSearchParams } from "@angular/http";
 
 @Injectable()
 export class DataService {
   private gh: GitHub;
   private repo: any;
-  constructor() {
+  constructor(private http: Http) {
     this.gh = new GitHub();
     this.repo = this.gh.getRepo('johanfrick', 'davidmiles-angular');
   }
@@ -79,5 +80,30 @@ export class DataService {
         console.error(reason);
         callback({});
       });
+  }
+
+  getVideos(callback) {
+    this.repo.getContents('data', 'video-artist.json', true)
+      .then(value => {
+        const videos: Array<string> = value.data;
+        callback(videos);
+      }, reason => {
+        console.error(reason);
+        callback({});
+      });
+  }
+
+  getYouTubeVideoTitle(id: string, callback) {
+    let apiKey = 'AIzaSyBKplqq_V9dmIO1y8oD73kaj5rwnRSS_d4';
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('key', apiKey);
+    params.set('id', id);
+    params.set('part', 'snippet');
+    let requestOptions = new RequestOptions();
+    requestOptions.search = params;
+
+    return this.http.get('https://www.googleapis.com/youtube/v3/videos?', requestOptions)
+      .toPromise()
+      .then(response => callback(response.json().items[0].snippet.title));
   }
 }

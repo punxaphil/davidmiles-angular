@@ -1,0 +1,14 @@
+
+
+<div class="d-flex flex-wrap" >
+  <div class="d-flex p-2 flex-column" style="width: 340px;" *ngFor="let v of videos">
+    <div class="mt-auto">{{v.title}}</div>
+    <div class="video" (click)="showVideo($event, v)" >
+      <div [hidden]="v.innerHtml" [ngStyle]="{'background-image': 'url(' + v.image + ')'}" style="width: 320px; height: 180px;">
+        <div class="youtube"></div>
+      </div>
+      <div [innerHTML]="v.innerHtml"></div>
+    </div>
+  </div>
+</div>
+
