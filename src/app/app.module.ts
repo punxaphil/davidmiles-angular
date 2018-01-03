@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     TourComponent,
     ContactComponent,
     DiscographyComponent,
-    VideoComponent
+    VideoComponent,
     LoginComponent
   ],
   imports: [
