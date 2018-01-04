@@ -102,7 +102,7 @@ export class DataService {
     let requestOptions = new RequestOptions();
     requestOptions.search = params;
 
-    return this.http.get('https://www.googleapis.com/youtube/v3/videos?', requestOptions)
+    this.http.get('https://www.googleapis.com/youtube/v3/videos?', requestOptions)
       .toPromise()
       .then(response => callback(response.json().items[0].snippet.title));
   }

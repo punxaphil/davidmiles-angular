@@ -1,8 +1,8 @@
 <div class="d-flex flex-wrap" >
-  <mat-card class="d-flex p-2 m-2 flex-column" style="width: 340px;" *ngFor="let v of videos">
+  <mat-card class="d-flex p-2 m-2 flex-column video-card" *ngFor="let v of videos">
     <div class="mt-auto">{{v.title}}</div>
     <div class="video" (click)="showVideo($event, v)" >
-      <div [hidden]="v.innerHtml" [ngStyle]="{'background-image': 'url(' + v.image + ')'}" style="width: 320px; height: 180px;">
+      <div class="youtube-wrapper" [hidden]="v.innerHtml" [ngStyle]="{'background-image': 'url(' + v.image + ')'}">
         <div class="youtube"></div>
       </div>
       <div [innerHTML]="v.innerHtml"></div>
