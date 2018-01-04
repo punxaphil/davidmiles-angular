@@ -130,4 +130,14 @@ export class DataService {
         callback({});
       });
   }
+
+  getLyric(textFile: string, callback) {
+    this.repo.getContents('data', textFile, true)
+      .then(value => {
+        callback(value.data);
+      }, reason => {
+        console.error(reason);
+        callback({});
+      });
+  }
 }
