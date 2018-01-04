@@ -7,8 +7,8 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 @Injectable()
 export class DataService {
   private gh: GitHub;
-  private repo: any;
-  constructor(private http: HttpClient) {
+  private repo: Repository;
+  constructor(private http: Http) {
     this.gh = new GitHub();
     this.repo = this.gh.getRepo('johanfrick', 'davidmiles-angular');
   }

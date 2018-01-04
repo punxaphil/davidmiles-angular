@@ -24,10 +24,10 @@ a:link, a:visited, a:hover, a:active {
   cursor: pointer;
 }
 
-.bold {
-  font-weight: bold;
-}
-
 .redBackground {
   background: #FFC9C9;
+}
+
+.bigger {
+  font-size: 1.3em;
 }
