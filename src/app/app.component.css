@@ -27,8 +27,7 @@
   line-height: 28px;
 }
 
-#sidebar > a.active,
-.red {
+#sidebar > a.active {
   color: darkred;
 }
 
