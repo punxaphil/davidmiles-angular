@@ -2,12 +2,13 @@ import {Injectable} from '@angular/core';
 import {IGig, ITour, IAlbum} from '../models';
 import 'rxjs/add/operator/map';
 import * as GitHub from 'github-api';
+
 import { Http, RequestOptions, URLSearchParams } from "@angular/http";
 
 @Injectable()
 export class DataService {
   private gh: GitHub;
-  private repo: any;
+  private repo: Repository;
   constructor(private http: Http) {
     this.gh = new GitHub();
     this.repo = this.gh.getRepo('johanfrick', 'davidmiles-angular');
