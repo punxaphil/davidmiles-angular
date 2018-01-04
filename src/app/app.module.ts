@@ -17,6 +17,7 @@ import {AuthorizationService} from './services/authorization.service';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { VideoComponent } from './video/video.component';
+import { TextComponent } from './text/text.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'discografi', component: DiscographyComponent },
   { path: 'video', component: VideoComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'texter', component: TextComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     ContactComponent,
     DiscographyComponent,
     VideoComponent,
-    LoginComponent
+    LoginComponent,
+    TextComponent
   ],
   imports: [
     BrowserModule,

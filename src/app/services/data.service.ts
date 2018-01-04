@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {IGig, ITour, IAlbum} from '../models';
+import { IGig, ITour, IAlbum, ILyric} from '../models';
 import 'rxjs/add/operator/map';
 import * as GitHub from 'github-api';
 import { HttpClient, HttpParams } from "@angular/common/http";
@@ -117,6 +117,17 @@ export class DataService {
       })
       .catch(error => {
         console.error(error);
+      });
+  }
+
+  getLyrics(callback) {
+    this.repo.getContents('data', 'texter.json', true)
+      .then(value => {
+        const lyrics: Array<ILyric> = value.data;
+        callback(lyrics);
+      }, reason => {
+        console.error(reason);
+        callback({});
       });
   }
 }
