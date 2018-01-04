@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { EmbedVideo } from 'ngx-embed-video';
 import { MatCardModule } from '@angular/material';
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
     EmbedVideo.forRoot(),
     FormsModule,

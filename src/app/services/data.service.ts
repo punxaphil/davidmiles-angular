@@ -2,13 +2,13 @@ import {Injectable} from '@angular/core';
 import {IGig, ITour, IAlbum} from '../models';
 import 'rxjs/add/operator/map';
 import * as GitHub from 'github-api';
-import { Http, RequestOptions, URLSearchParams } from "@angular/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 
 @Injectable()
 export class DataService {
   private gh: GitHub;
   private repo: any;
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this.gh = new GitHub();
     this.repo = this.gh.getRepo('johanfrick', 'davidmiles-angular');
   }
@@ -95,15 +95,19 @@ export class DataService {
 
   getYouTubeVideoTitle(id: string, callback) {
     let apiKey = 'AIzaSyBKplqq_V9dmIO1y8oD73kaj5rwnRSS_d4';
-    let params: URLSearchParams = new URLSearchParams();
-    params.set('key', apiKey);
-    params.set('id', id);
-    params.set('part', 'snippet');
-    let requestOptions = new RequestOptions();
-    requestOptions.search = params;
 
-    this.http.get('https://www.googleapis.com/youtube/v3/videos?', requestOptions)
+    let params = new HttpParams()
+      .set('key', apiKey)
+      .set('id', id)
+      .set('part', 'snippet');
+
+    this.http.get('https://www.googleapis.com/youtube/v3/videos?', {params: params})
       .toPromise()
-      .then(response => callback(response.json().items[0].snippet.title));
+      .then(response => {
+        callback(response['items'][0].snippet.title);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 }
