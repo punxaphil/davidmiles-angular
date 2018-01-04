@@ -4,17 +4,23 @@ node_js:
 
 cache:
   directories:
-  - node_modules
+    - node_modules
 before_script:
-- npm install -g @angular/cli
-- npm install
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - npm install -g @angular/cli
+  - npm install
+  - ng e2e
 
 script: ng build -prod
 
 addons:
   ssh_known_hosts: ssh.davidmiles.se
   apt:
+    sources:
+      - google-chrome
     packages:
+      - google-chrome-stable
       - sshpass
 after_success:
   - bash .travis-deploy.sh
