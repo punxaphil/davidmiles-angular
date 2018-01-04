@@ -1,14 +1,21 @@
-import { AppPage } from './app.po';
+import {AppPage} from './app.po';
 
 describe('david-miles App', () => {
-  let page: AppPage;
-
-  beforeEach(() => {
-    page = new AppPage();
-  });
 
   it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    AppPage.navigateTo('/');
+    expect(AppPage.getHomeParagraphText()).toContain('Välkommen');
+  });
+
+  it('Should show about text', () => {
+    AppPage.sidebarNavigate('om');
+    expect(AppPage.getComponentText('app-about')).toContain('2011 hade David en radiohit');
+  });
+
+  it('Should show tour headers', () => {
+    AppPage.sidebarNavigate('spelplan');
+    const tourText = AppPage.getComponentText('app-tour');
+    expect(tourText).toContain('Tidigare');
+    expect(tourText).toContain('Kommande');
   });
 });

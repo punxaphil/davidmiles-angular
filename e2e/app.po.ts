@@ -1,11 +1,19 @@
-import { browser, by, element } from 'protractor';
+import {browser, by, element} from 'protractor';
 
 export class AppPage {
-  navigateTo() {
-    return browser.get('/');
+  static navigateTo(destination: string) {
+    return browser.get(destination);
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  static getHomeParagraphText() {
+    return element(by.css('app-root app-home p')).getText();
+  }
+
+  static getComponentText(component: string) {
+    return element(by.css('app-root ' + component)).getText();
+  }
+
+  static sidebarNavigate(itemLink: string) {
+    element(by.css('#sidebar a[href="#/' + itemLink + '"]')).click();
   }
 }
