@@ -1,27 +1,43 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ILyric } from '../models';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-text',
   templateUrl: './text.component.html',
-  styleUrls: ['./text.component.css']
+  styleUrls: ['./text.component.css'],
+  animations: [
+    trigger('animateText', [
+      state('true', style({ opacity: 1, height: '*', overflow: 'hidden' })),
+      state('false', style({ opacity: 0, height: '0px', overflow: 'hidden' })),
+      transition('1 => 0', animate('300ms')),
+      transition('0 => 1', animate('300ms'))
+    ])
+  ]
 })
 export class TextComponent {
-
   lyrics: Array<ILyric> = [];
   lyric: string;
 
   constructor(private dataService: DataService) {
     this.dataService.getLyrics(lyrics => {
       this.lyrics = lyrics;
+      this.lyrics.forEach(lyric => {
+        lyric.showText = false;
+      });
     });
   }
 
   showText(item) {
-    if (item.showText)
-      item.showText = false;
-    else {
+    this.lyrics.forEach(lyric => {
+      if (lyric.title !== item.title) {
+        lyric.showText = false;
+      }
+    });
+    if (item.showText) {
+      item.showText = (!item.showText);
+    } else {
       this.dataService.getLyric(item.textFile,
         text => {
           item.text = text;

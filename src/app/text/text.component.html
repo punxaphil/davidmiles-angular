@@ -1,9 +1,4 @@
 <div *ngFor="let lyric of lyrics">
-  <div class="animated fadeIn"><a [routerLink]="" (click)="showText(lyric)">{{lyric.title}}</a></div>
-  <div [hidden]="!lyric.showText" style="white-space: pre-line">{{lyric.text}}</div>
+  <div><a  [routerLink]="" (click)="showText(lyric)">{{lyric.title}}</a></div>
+  <div [@animateText]="lyric.showText" style="white-space: pre-line">{{lyric.text}}</div>
 </div>
-
-
-  <!--<div class="animated fadeIn"><a href="" data-bind="text: id, click: click, css: {'bold animated pulse': selected()}"></a></div>
-  <div class="hiddenLyrics" data-bind="html: text, css: {'visibleLyrics': selected}"></div>-->
-

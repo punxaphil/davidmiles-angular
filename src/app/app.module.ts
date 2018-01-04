@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { useHash: true }),
     EmbedVideo.forRoot(),
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    BrowserAnimationsModule
   ],
   providers: [DataService, AuthorizationService],
   bootstrap: [AppComponent]
