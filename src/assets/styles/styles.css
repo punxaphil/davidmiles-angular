@@ -31,3 +31,7 @@ a:link, a:visited, a:hover, a:active {
 .redBackground {
   background: #FFC9C9;
 }
+
+.bigger {
+  font-size: 1.3em;
+}
