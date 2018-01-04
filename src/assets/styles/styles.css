@@ -2,12 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-body, .mat-card {
+body {
   font-family: 'Yanone Kaffeesatz', sans-serif !important;
   font-size: 1.1em;
   color: dimgray !important;
   height: 100%;
   background-color: #d6d6d6;
+}
+
+.mat-card {
+  font-family: 'Yanone Kaffeesatz', sans-serif !important;
+  font-size: 1.1em;
+  color: dimgray !important;
 }
 
 a:link, a:visited, a:hover, a:active {
