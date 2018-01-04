@@ -4,6 +4,15 @@ import 'rxjs/add/operator/map';
 import * as GitHub from 'github-api';
 import { HttpClient, HttpParams } from "@angular/common/http";
 
+interface GitHub {
+  getRepo(owner: string, repo: string): Repository;
+}
+
+interface Repository {
+  getContents(branch: string, file: string, raw: boolean);
+}
+
+
 @Injectable()
 export class DataService {
   private gh: GitHub;
