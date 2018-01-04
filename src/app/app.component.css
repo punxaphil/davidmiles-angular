@@ -1,3 +1,41 @@
+.container {
+  max-width: 900px;
+  background-color: white;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.main,
+.mainnav,
+.navbar {
+  padding: 0px;
+}
+
+.navbar {
+  height: 128px;
+}
+
+#sidebar {
+  height: 100%;
+  overflow-y: auto;
+  padding-left: 30px;
+}
+
+#sidebar > a {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: dimgray;
+  line-height: 28px;
+}
+
+#sidebar > a.active,
+.red {
+  color: darkred;
+}
+
+.main-content {
+  margin-top: 127px;
+}
+
 #loggedInLogo {
   position: absolute;
   right: 10px;
@@ -6,4 +44,9 @@
   border: 1px solid black;
   width: 30px;
   height: 30px;
+}
+
+.logo {
+  width: 300px;
+  max-width: 60%;
 }

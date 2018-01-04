@@ -1,6 +1,6 @@
 <div class="media">
   <div class="media-body">
-    <div class="marginBottom bigger" *ngIf="tour.firstGig">
+    <div class="mb-2 bigger" *ngIf="tour.firstGig">
       <div class="red">Nästa spelning {{tour.firstGig.distance}}</div>
       <div>Datum: {{tour.firstGig.date}}</div>
       <div>Plats: {{tour.firstGig.place}}</div>
@@ -9,7 +9,7 @@
     <div>
       <div class="red">Kommande</div>
       <div *ngIf="!tour.hasUpcomingGigs">Inga spelningar inbokade</div>
-      <div class="marginBottom" *ngFor="let gig of tour.upcomingGigs">
+      <div class="mb-2" *ngFor="let gig of tour.upcomingGigs">
         <div class="text-nowrap">
           <span class="bold">{{gig.date}}</span>
           <span>{{gig.place}}</span>
