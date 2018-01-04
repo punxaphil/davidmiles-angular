@@ -132,12 +132,12 @@ export class DataService {
   }
 
   getLyric(textFile: string, callback) {
-    this.repo.getContents('data', textFile, true)
+    this.repo.getContents('data', 'lyrics/'+ textFile, true)
       .then(value => {
         callback(value.data);
       }, reason => {
         console.error(reason);
-        callback({});
+        callback("Tyvärr kunden texten inte visas för tillfälligt. Återkom lite senare.");
       });
   }
 }
