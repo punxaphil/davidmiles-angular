@@ -39,8 +39,12 @@ export class TextComponent {
       item.showText = (!item.showText);
     } else {
       this.dataService.getLyric(item.textFile,
-        text => {
-          item.text = text;
+        response => {
+          item.text = response;
+          item.showText = true;
+        },
+        error => {
+          item.text = "Tyvärr kunden texten inte visas för tillfälligt. Återkom lite senare.";
           item.showText = true;
         });
     }
