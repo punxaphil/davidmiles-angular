@@ -48,4 +48,8 @@ export class DataService {
   getLyric(textFile: string, successCallback, errorCallback) {
     this.githubApi.getFileFromRepo('lyrics/' + textFile, successCallback, errorCallback);
   }
+
+  getReviews(successCallback) {
+    this.githubApi.getFileFromRepo('recensioner.json', successCallback);
+  }
 }

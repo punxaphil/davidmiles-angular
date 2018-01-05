@@ -1,3 +1,4 @@
-<p>
-  reviews works!
-</p>
+<div *ngFor="let review of reviews">
+  <img class="reviewAlbums" *ngIf="review.hasImage" [src]="review.albumImage" />
+  <a *ngIf="review.link" target="_blank" [href]="review.link">{{review.text}}</a>
+</div>
