@@ -11,7 +11,9 @@ export class DiscographyComponent implements OnInit {
 
   albums: Array<IAlbum> = [];
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
     this.dataService.getAlbums(albums => {
       this.albums = albums;
       this.albums.forEach(album => {
@@ -24,8 +26,4 @@ export class DiscographyComponent implements OnInit {
       });
     });
   }
-
-  ngOnInit() {
-  }
-
 }

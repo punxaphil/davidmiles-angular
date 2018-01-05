@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ILyric } from '../models';
 import { trigger, state, style, transition, animate } from '@angular/animations';
@@ -16,11 +16,13 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ])
   ]
 })
-export class TextComponent {
+export class TextComponent implements OnInit {
   lyrics: Array<ILyric> = [];
   lyric: string;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService) { }
+
+  ngOnInit() {
     this.dataService.getLyrics(lyrics => {
       this.lyrics = lyrics;
       this.lyrics.forEach(lyric => {

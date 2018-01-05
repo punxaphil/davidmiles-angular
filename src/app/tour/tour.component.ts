@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service'
 import { ITour, IGig } from '../models';
 
@@ -6,10 +6,12 @@ import { ITour, IGig } from '../models';
   selector: 'app-tour',
   templateUrl: './tour.component.html'
 })
-export class TourComponent {
+export class TourComponent implements OnInit {
   tour: ITour = {};
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
     this.dataService.getTour(response => {
       const gigs: Array<IGig> = response;
       this.tour = this.createTour(gigs);

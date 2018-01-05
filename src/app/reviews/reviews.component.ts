@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service'
 import { IReview } from '../models';
 
@@ -7,11 +7,13 @@ import { IReview } from '../models';
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.css']
 })
-export class ReviewsComponent  {
+export class ReviewsComponent implements OnInit {
 
   reviews: Array<IReview>;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
     this.dataService.getReviews(response => {
       this.reviews = response;
       this.reviews.forEach(review => {
@@ -20,5 +22,4 @@ export class ReviewsComponent  {
       console.log(response);
     });
   }
-
 }
