@@ -14,6 +14,7 @@ describe('david-miles App', () => {
 
   it('Should show tour headers', () => {
     AppPage.sidebarNavigate('spelplan');
+    AppPage.waitForComponentToContainText('app-tour', 'Tidigare');
     const tourText = AppPage.getComponentText('app-tour');
     expect(tourText).toContain('Tidigare');
     expect(tourText).toContain('Kommande');
