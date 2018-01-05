@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { VideoComponent } from './video/video.component';
 import { TextComponent } from './text/text.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'video', component: VideoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'texter', component: TextComponent },
+  { path: 'recensioner', component: ReviewsComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     DiscographyComponent,
     VideoComponent,
     LoginComponent,
-    TextComponent
+    TextComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
