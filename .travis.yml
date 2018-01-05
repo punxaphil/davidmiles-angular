@@ -13,7 +13,7 @@ before_script:
 script:
   - export CHROME_BIN=chromium-browser
   - xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
-  - ng build -- --prod
+  - ng build -prod
 
 addons:
   ssh_known_hosts: ssh.davidmiles.se
