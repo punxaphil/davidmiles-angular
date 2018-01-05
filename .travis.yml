@@ -22,7 +22,7 @@ install:
 script:
   - export CHROME_BIN=chromium-browser
   - xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
-  - xvfb-run -a ng build -- --prod
+  - ng build -- --prod
 
 after_success:
   - bash .travis-deploy.sh
