@@ -19,6 +19,12 @@ export class AppPage {
     browser.wait(until.presenceOf(elem), 30000, `Element ${component} taking too long to appear in the DOM`);
   }
 
+  static waitForComponentToContainText(component: string, text: string) {
+    const elem = element(by.css('app-root ' + component));
+    const until = protractor.ExpectedConditions;
+    browser.wait(until.textToBePresentInElement(elem, text), 5000, `Element ${component} taking too long to appear in the DOM`);
+  }
+
   static sidebarNavigate(itemLink: string) {
     element(by.css('#sidebar a[href="#/' + itemLink + '"]')).click();
   }
