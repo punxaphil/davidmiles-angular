@@ -11,17 +11,12 @@ before_script:
   - npm install
 
 script:
-  - export CHROME_BIN=chromium-browser
-  - xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
   - ng build -prod
 
 addons:
   ssh_known_hosts: ssh.davidmiles.se
   apt:
-    sources:
-      - google-chrome
     packages:
-      - google-chrome-stable
       - sshpass
 
 after_success:
