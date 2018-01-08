@@ -1,3 +1,6 @@
+@import "~styles/variables";
+@import "~bootstrap/scss/bootstrap";
+
 .container {
   max-width: 900px;
   background-color: white;
@@ -8,7 +11,7 @@
 .main,
 .mainnav,
 .navbar {
-  padding: 0px;
+  padding: 0;
 }
 
 .navbar {
@@ -17,18 +20,19 @@
 
 #sidebar {
   height: 100%;
+  width: 128px;
   overflow-y: auto;
-  padding-left: 30px;
-}
 
-#sidebar > a {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  color: dimgray;
-  line-height: 28px;
-}
-
-#sidebar > a.active {
-  color: darkred;
+  div {
+    text-indent: 30px;
+    a {
+      color: $body-color;
+      line-height: 28px;
+    }
+    a.active {
+      color: $primary;
+    }
+  }
 }
 
 .main-content {
@@ -48,4 +52,8 @@
 .logo {
   width: 300px;
   max-width: 60%;
+}
+
+.menu-header {
+  @include gradient-x($start-color: $body-bg, $end-color: white, $start-percent: 0%, $end-percent: 100%)
 }

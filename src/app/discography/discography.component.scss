@@ -1,0 +1,32 @@
+@import "~styles/variables";
+@import "~bootstrap/scss/bootstrap";
+
+.discography {
+  width: 250px;
+  height: 340px;
+}
+
+.discoInfo {
+  height: 50px;
+}
+
+.discoYear {
+  color: $primary;
+  font-size: $font-size-sm;
+}
+
+.discoTrackCount {
+  font-size: $font-size-sm;
+}
+
+.discoLinks {
+  height: 40px;
+  img {
+    margin-left: 10px;
+    width: 24px;
+  }
+}
+
+.shoppingCart {
+  border: 1px solid $body-color;
+}

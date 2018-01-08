@@ -4,7 +4,8 @@ import { ITour, IGig } from '../models';
 
 @Component({
   selector: 'app-tour',
-  templateUrl: './tour.component.html'
+  templateUrl: './tour.component.html',
+  styleUrls: ['./tour.component.scss']
 })
 export class TourComponent implements OnInit {
   tour: ITour = {};

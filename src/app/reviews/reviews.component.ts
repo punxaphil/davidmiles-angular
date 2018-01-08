@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service'
+import { DataService } from '../services/data.service';
 import { IReview } from '../models';
 
 @Component({
   selector: 'app-reviews',
-  templateUrl: './reviews.component.html',
-  styleUrls: ['./reviews.component.css']
+  templateUrl: './reviews.component.html'
 })
 export class ReviewsComponent implements OnInit {
 
@@ -19,7 +18,6 @@ export class ReviewsComponent implements OnInit {
       this.reviews.forEach(review => {
         review.hasImage = review.albumImage !== undefined;
       });
-      console.log(response);
     });
   }
 }

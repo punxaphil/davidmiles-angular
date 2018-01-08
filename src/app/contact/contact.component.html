@@ -24,7 +24,7 @@
   </div>
 
   <div>
-    Administratör: <a class="href" *ngIf="!isLoggedIn" routerLink="/login">Logga in</a>
-    <a class="href" *ngIf="isLoggedIn" (click)="logout()">Logga ut</a>
+    Administratör: <a *ngIf="!isLoggedIn" routerLink="/login">Logga in</a>
+    <a *ngIf="isLoggedIn" (click)="logout()">Logga ut</a>
   </div>
 </div>

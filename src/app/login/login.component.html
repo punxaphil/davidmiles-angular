@@ -1,7 +1,7 @@
 <div class="login">
   <label for="password">Användarnamn</label>
-  <input id="username" type="text" autofocus [(ngModel)]="username" [ngClass]="unauthorized && 'redBackground'">
+  <input id="username" type="text" autofocus [(ngModel)]="username" [ngClass]="unauthorized && 'fail'">
   <label for="password">Lösenord</label>
-  <input id="password" type="password" [(ngModel)]="password" [ngClass]="unauthorized && 'redBackground'">
+  <input id="password" type="password" [(ngModel)]="password" [ngClass]="unauthorized && 'fail'">
     <button class="mt-2" (click)="submit()">LOGGA IN</button>
 </div>

@@ -1,4 +1,4 @@
 <div *ngFor="let review of reviews">
-  <img class="reviewAlbums" *ngIf="review.hasImage" [src]="review.albumImage" />
+  <img class="w-25 mt-3 mb-1" *ngIf="review.hasImage" [src]="review.albumImage" />
   <a *ngIf="review.link" target="_blank" [href]="review.link">{{review.text}}</a>
 </div>

@@ -6,7 +6,6 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 @Component({
   selector: 'app-text',
   templateUrl: './text.component.html',
-  styleUrls: ['./text.component.css'],
   animations: [
     trigger('animateText', [
       state('true', style({ opacity: 1, height: '*', overflow: 'hidden' })),

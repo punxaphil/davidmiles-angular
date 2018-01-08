@@ -1,0 +1,31 @@
+// from https://github.com/angular/material2/blob/master/guides/theming.md#theming-only-certain-components
+@import "variables";
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: "$font-family-sans-serif"
+);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core($custom-typography);
+
+// Define the theme.
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+
+// Include the theme styles for only specified components.
+@include mat-core-theme($candy-app-theme);
+@include mat-card-theme($candy-app-theme);
+
+.mat-card {
+  font-size: $font-size-base;
+  color: $body-color;
+  padding: 6px !important;
+}

@@ -5,7 +5,7 @@ import { IAlbum } from '../models';
 @Component({
   selector: 'app-discography',
   templateUrl: './discography.component.html',
-  styleUrls: ['./discography.component.css']
+  styleUrls: ['./discography.component.scss']
 })
 export class DiscographyComponent implements OnInit {
 
@@ -22,7 +22,7 @@ export class DiscographyComponent implements OnInit {
         album.shopUrl = album.shopId ? 'http://davidmiles.tictail.com/product/' + album.shopId : '';
         album.width = '250px';
         album.height = '250px';
-        album.hasImage = album.image ? true : false;
+        album.hasImage = !!album.image;
       });
     });
   }

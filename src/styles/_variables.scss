@@ -1,0 +1,12 @@
+/*
+Customize bootstrap by replacing variables from:
+node_modules/bootstrap/scss/_variables.scss
+ */
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+
+$primary: darkred;
+$body-color: dimgray;
+$body-bg: #d6d6d6;
+$font-family-sans-serif: 'Yanone Kaffeesatz', sans-serif;
+$font-size-base: 1.1rem;
+$link-hover-decoration: none;

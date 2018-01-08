@@ -6,9 +6,9 @@
     <div class="discography animated fadeIn" *ngIf="album.hasImage">
       <div class="discoInfo">
         <div class="discoYear">{{album.date}}</div>
-        <div>
-          <div class="discoTitle">{{album.title}}</div>
-          <div class="discoTrackCount"><span>{{album.trackCount}} spår</span></div>
+        <div class="d-flex justify-content-between discoTrackCount">
+          <div>{{album.title}}</div>
+          <div>{{album.trackCount}} spår</div>
         </div>
       </div>
       <div style="background-size: 100%" [ngStyle]="{ 'background-image': 'url(' + album.image + ')', 'width': album.width , 'height': album.height }" >
