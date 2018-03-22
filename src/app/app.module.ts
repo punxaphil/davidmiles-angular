@@ -21,6 +21,7 @@ import { VideoComponent } from './video/video.component';
 import { TextComponent } from './text/text.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { PressComponent } from './press/press.component';
+import { ArtistImagesComponent } from './artist-images/artist-images.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     LoginComponent,
     TextComponent,
     ReviewsComponent,
-    PressComponent
+    PressComponent,
+    ArtistImagesComponent
   ],
   imports: [
     BrowserModule,
