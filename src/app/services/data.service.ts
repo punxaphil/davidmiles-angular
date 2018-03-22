@@ -52,4 +52,13 @@ export class DataService {
   getReviews(successCallback) {
     this.githubApi.getFileFromRepo('recensioner.json', successCallback);
   }
+
+  getPressAnnouncements(successCallback) {
+    this.githubApi.getFileFromRepo('press/announcements', successCallback);
+  }
+
+  getPressImages(successCallback) {
+    this.githubApi.getFileFromRepo('press/img/', successCallback);
+  }
+
 }

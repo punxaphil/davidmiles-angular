@@ -34,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'texter', component: TextComponent },
   { path: 'recensioner', component: ReviewsComponent },
   { path: 'press', component: PressComponent },
+  { path: 'artist-bilder', component: ArtistImagesComponent},
   { path: '**', component: HomeComponent }
 ];
 
