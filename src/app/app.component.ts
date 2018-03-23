@@ -14,6 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   opened: boolean;
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
+  contentPadding: number;
 
   constructor(private authorizationService: AuthorizationService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
       changeDetectorRef.detectChanges();
       this.opened = !this.mobileQuery.matches;
     };
+    this.contentPadding = this.mobileQuery.matches ? 10 : 0;
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
