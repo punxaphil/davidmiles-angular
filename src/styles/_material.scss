@@ -23,6 +23,7 @@ $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 // Include the theme styles for only specified components.
 @include mat-core-theme($candy-app-theme);
 @include mat-card-theme($candy-app-theme);
+@include mat-sidenav-theme($candy-app-theme);
 
 .mat-card {
   font-size: $font-size-base;

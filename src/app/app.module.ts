@@ -5,7 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { EmbedVideo } from 'ngx-embed-video';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatToolbarModule, MatIconModule} from '@angular/material';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import {LayoutModule} from '@angular/cdk/layout';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -61,6 +63,10 @@ const appRoutes: Routes = [
     EmbedVideo.forRoot(),
     FormsModule,
     MatCardModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    LayoutModule,
     BrowserAnimationsModule
   ],
   providers: [DataService, AuthorizationService],
