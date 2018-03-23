@@ -1,17 +1,16 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()" *ngIf="mobileQuery.matches">
+    <button mat-icon-button (click)="sideNav.toggle()" *ngIf="mobileQuery.matches">
       <mat-icon>menu</mat-icon>
     </button>
     <img id="loggedInLogo" src="assets/images/guitar-burning.gif" *ngIf="isLoggedIn">
-    <img class="" src="assets/images/drawer_photo.jpg"/>
+    <img class="" src="assets/images/drawer_photo.jpg"  *ngIf="!mobileQuery.matches"/>
     <img class="logo ml-4 mt-4 mb-3" src="assets/images/logo.png"/>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="opened"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="opened"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="128">
       <div class="sidebar-offcanvas" id="sidebar" role="navigation">
         <div><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Hem</a></div>
         <div><a routerLinkActive="active" routerLink="/om">Om</a></div>
@@ -32,7 +31,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <router-outlet></router-outlet>
+      <router-outlet (activate)="onContentChanged()"></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

@@ -1,6 +1,7 @@
-import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {AuthorizationService} from './services/authorization.service';
 import {MediaMatcher} from '@angular/cdk/layout';
+import {MatSidenav} from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
+  @ViewChild('sideNav') sideNav: MatSidenav;
   isLoggedIn: boolean;
   opened: boolean;
   mobileQuery: MediaQueryList;
@@ -27,6 +29,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.isLoggedIn = this.authorizationService.isLoggedIn();
     this.authorizationService.loggedInUpdated.subscribe((loggedIn: boolean) => this.isLoggedIn = loggedIn
     );
+  }
+
+  onContentChanged() {
+    if (this.mobileQuery.matches ) {
+      this.sideNav.close();
+    }
   }
 
   ngOnDestroy(): void {

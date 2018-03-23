@@ -1,6 +1,5 @@
 // from https://github.com/angular/material2/blob/master/guides/theming.md#theming-only-certain-components
 @import "variables";
-
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
@@ -17,8 +16,8 @@ $custom-typography: mat-typography-config(
 
 // Define the theme.
 $candy-app-primary: mat-palette($mat-indigo);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
-$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
 
 // Include the theme styles for only specified components.
 @include mat-core-theme($candy-app-theme);
@@ -29,4 +28,13 @@ $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
   font-size: $font-size-base;
   color: $body-color;
   padding: 6px !important;
+}
+
+.mat-toolbar, .mat-sidenav-container {
+  background-color: white;
+}
+
+.mat-toolbar-single-row {
+  height: 128px !important;
+  padding: 0 !important;
 }
