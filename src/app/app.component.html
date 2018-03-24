@@ -7,7 +7,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="opened"
+    <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!this.mobileQuery.matches"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="128">
       <div class="sidebar-offcanvas" id="sidebar" role="navigation">
         <div><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Hem</a></div>

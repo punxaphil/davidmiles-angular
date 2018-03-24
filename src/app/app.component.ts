@@ -11,17 +11,15 @@ import {MatSidenav} from '@angular/material';
 export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('sideNav') sideNav: MatSidenav;
   isLoggedIn: boolean;
-  opened: boolean;
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   contentPadding: number;
 
   constructor(private authorizationService: AuthorizationService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this.opened = !this.mobileQuery.matches;
     this._mobileQueryListener = () => {
       changeDetectorRef.detectChanges();
-      this.opened = !this.mobileQuery.matches;
+      location.reload();
     };
     this.contentPadding = this.mobileQuery.matches ? 10 : 0;
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -29,12 +27,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoggedIn = this.authorizationService.isLoggedIn();
-    this.authorizationService.loggedInUpdated.subscribe((loggedIn: boolean) => this.isLoggedIn = loggedIn
-    );
+    this.authorizationService.loggedInUpdated.subscribe((loggedIn: boolean) => this.isLoggedIn = loggedIn);
   }
 
   onContentChanged() {
-    if (this.mobileQuery.matches ) {
+    if (this.mobileQuery.matches) {
       this.sideNav.close();
     }
   }
