@@ -1,4 +1,4 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+<div [class.example-is-mobile]="mobileQuery.matches" style="height: 100%">
   <mat-toolbar color="primary" class="example-toolbar">
     <mat-icon class="ml-3" color="gray" (click)="sideNav.toggle()" *ngIf="mobileQuery.matches">menu</mat-icon>
     <img id="loggedInLogo" src="assets/images/guitar-burning.gif" *ngIf="isLoggedIn">
@@ -6,7 +6,7 @@
     <img class="logo ml-4 mt-4 mb-3" src="assets/images/logo.png"/>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container">
+  <mat-sidenav-container style="min-height: 100%" class="example-sidenav-container">
     <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!this.mobileQuery.matches"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="128">
       <div class="sidebar-offcanvas" id="sidebar" role="navigation">

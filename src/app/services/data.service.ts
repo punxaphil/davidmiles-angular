@@ -1,16 +1,17 @@
 import {Injectable} from '@angular/core';
-import { GitHubApi} from '../models';
+import {GitHubApi} from '../models';
 import 'rxjs/add/operator/map';
-import { HttpClient, HttpParams } from "@angular/common/http";
+import {HttpClient, HttpParams} from '@angular/common/http';
 
 @Injectable()
 export class DataService {
-  
+
   private githubApi: GitHubApi;
+
   constructor(private http: HttpClient) {
     this.githubApi = new GitHubApi();
   }
- 
+
   getTour(successCallback) {
     this.githubApi.getFileFromRepo('spelplan.json', successCallback);
   }
@@ -24,9 +25,9 @@ export class DataService {
   }
 
   getYouTubeVideoTitle(id: string, callback) {
-    let apiKey = 'AIzaSyBKplqq_V9dmIO1y8oD73kaj5rwnRSS_d4';
+    const apiKey = 'AIzaSyBKplqq_V9dmIO1y8oD73kaj5rwnRSS_d4';
 
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('key', apiKey)
       .set('id', id)
       .set('part', 'snippet');
