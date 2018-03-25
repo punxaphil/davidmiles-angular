@@ -58,7 +58,7 @@ export class DataService {
   }
 
   getPressImages(successCallback) {
-    this.githubApi.getFileFromRepo('press/img/', successCallback);
+    this.githubApi.getFileFromRepo('press/img', successCallback);
   }
 
 }
