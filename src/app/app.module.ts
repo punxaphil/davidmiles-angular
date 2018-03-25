@@ -5,7 +5,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {EmbedVideo} from 'ngx-embed-video';
-import {MatCardModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatInputModule, MatListModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
@@ -26,6 +26,9 @@ import {TextComponent} from './text/text.component';
 import {ReviewsComponent} from './reviews/reviews.component';
 import {PressComponent} from './press/press.component';
 import {ArtistImagesComponent} from './artist-images/artist-images.component';
+import {KeysPipe} from './pipe/keys.pipe';
+import {NgxImageGalleryModule} from 'ngx-image-gallery';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -55,6 +58,7 @@ const appRoutes: Routes = [
     TextComponent,
     ReviewsComponent,
     PressComponent,
+    KeysPipe,
     ArtistImagesComponent
   ],
   imports: [
@@ -69,6 +73,11 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatIconModule,
     LayoutModule,
+    NgxImageGalleryModule,
+    FlexLayoutModule,
+    MatButtonModule,
+    MatInputModule,
+    MatListModule,
     BrowserAnimationsModule
   ],
   providers: [DataService, AuthorizationService],
