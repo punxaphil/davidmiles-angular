@@ -1,13 +1,14 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, OnInit} from '@angular/core';
 import {DEMO_GALLERY_CONF_INLINE, DEMO_GALLERY_IMAGE} from './config';
-import {GALLERY_CONF, GALLERY_IMAGE, NgxImageGalleryComponent} from 'ngx-image-gallery';
+import { GALLERY_CONF, GALLERY_IMAGE, NgxImageGalleryComponent } from 'ngx-image-gallery';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'artist-images.component.html',
   styleUrls: ['artist-images.component.css']
 })
-export class ArtistImagesComponent {
+export class ArtistImagesComponent implements OnInit {
 
   public showConf = true;
 
@@ -19,23 +20,47 @@ export class ArtistImagesComponent {
   conf: GALLERY_CONF = DEMO_GALLERY_CONF_INLINE;
 
   // gallery images
-  images: GALLERY_IMAGE[] = DEMO_GALLERY_IMAGE;
+  images: GALLERY_IMAGE[] = [];//DEMO_GALLERY_IMAGE;
 
-  // METHODS
+    constructor(private dataService: DataService) {}
+
+    ngOnInit() {
+      this.dataService.getPressImages(images => {
+        let tempImages = images;
+        tempImages.forEach(x => {
+          if (!x.path.match("/thumb")) {
+              var filename = x.download_url.substr(x.download_url.lastIndexOf('/') + 1);
+            let image: GALLERY_IMAGE =
+              {
+                url: x.download_url,
+                altText: x.name,
+                thumbnailUrl: x.download_url.substr(0, x.download_url.lastIndexOf('/')) + "/thumb/" + filename
+              };
+            this.images.push(image);
+             
+          }
+           
+        });
+        this.openGallery(0);
+    });
+      console.log(this.images);
+    }
+
+    // METHODS
   // open gallery
   openGallery(index: number = 0) {
     // console.log(this.ngxImageGallery);
-    // this.ngxImageGallery.open(index);
+     this.ngxImageGallery.open(index);
   }
 
   // close gallery
   closeGallery() {
-    // this.ngxImageGallery.close();
+     this.ngxImageGallery.close();
   }
 
   // set new active(visible) image in gallery
   newImage(index: number = 0) {
-    // this.ngxImageGallery.setActiveImage(index);
+     this.ngxImageGallery.setActiveImage(index);
   }
 
   // next image in gallery

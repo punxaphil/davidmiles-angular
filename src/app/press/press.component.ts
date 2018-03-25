@@ -12,21 +12,20 @@ export class PressComponent implements OnInit {
     images: Array<IMedia> = [];
   //@ViewChild('thumbnails') thumbnails;
     
-    constructor(private dataSerivce: DataService) {}
+  constructor(private dataService: DataService) {}
 
     ngOnInit() {
-        this.dataSerivce.getPressAnnouncements(announcements => {
+      this.dataService.getPressAnnouncements(announcements => {
           this.announcements = announcements;
           this.announcements.forEach(x => {
                 //console.log(x.name);
             });
         });
 
-        this.dataSerivce.getPressImages(images => {
+      this.dataService.getPressImages(images => {
           let tempImages = images;
           tempImages.forEach(x => {
             if (!x.path.match("/thumb")) {
-                console.log(x.path); 
                 var filename = x.download_url.substr(x.download_url.lastIndexOf('/') + 1);
                 x.thumbnail = x.download_url.substr(0, x.download_url.lastIndexOf('/')) + "/thumb/" + filename;
                 this.images.push(x);
