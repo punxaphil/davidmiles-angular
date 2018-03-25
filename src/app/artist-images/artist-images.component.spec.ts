@@ -1,25 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed, async } from '@angular/core/testing';
 import { ArtistImagesComponent } from './artist-images.component';
-
 describe('ArtistImagesComponent', () => {
-  let component: ArtistImagesComponent;
-  let fixture: ComponentFixture<ArtistImagesComponent>;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArtistImagesComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        ArtistImagesComponent
+      ],
+    }).compileComponents();
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ArtistImagesComponent);
-    component = fixture.componentInstance;
+  it('should create the app', async(() => {
+    const fixture = TestBed.createComponent(ArtistImagesComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  }));
+  it(`should have as title 'app'`, async(() => {
+    const fixture = TestBed.createComponent(ArtistImagesComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('app');
+  }));
+  it('should render title in a h1 tag', async(() => {
+    const fixture = TestBed.createComponent(ArtistImagesComponent);
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
+  }));
 });
