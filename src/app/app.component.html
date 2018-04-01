@@ -27,7 +27,7 @@
       </div>
     </mat-sidenav>
 
-    <mat-sidenav-content [style.paddingLeft.px]="contentPadding" [style.paddingRight.px]="contentPadding">
+    <mat-sidenav-content>
       <router-outlet (activate)="onContentChanged()"></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

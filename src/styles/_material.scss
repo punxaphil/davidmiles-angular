@@ -54,6 +54,11 @@ mat-sidenav-container {
   min-height: 100%;
 }
 
+.mat-sidenav-content {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .mat-drawer-container {
   background-color: white;
   color: $body-color;
