@@ -11,8 +11,9 @@ export class PressComponent implements OnInit {
     announcements: Array<IMedia>;
     images: Array<IMedia> = [];
     url = "press/img";
-    
-  constructor(private dataService: DataService) {}
+    posters: Array<IMedia> = [];
+
+    constructor(private dataService: DataService) {}
 
     ngOnInit() {
       this.dataService.getPressAnnouncements(announcements => {
@@ -20,6 +21,9 @@ export class PressComponent implements OnInit {
           this.announcements.forEach(x => {
                 //console.log(x.name);
             });
-        });
+      });
+      this.dataService.getPressAffisch(affisch => {
+
+      });
     }
 }
