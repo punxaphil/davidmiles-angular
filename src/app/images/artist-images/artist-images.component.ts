@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ImagesComponent } from '../images.component';
 
 @Component({
   selector: 'app-artist-images',
@@ -7,7 +6,7 @@ import { ImagesComponent } from '../images.component';
   styleUrls: ['./artist-images.component.scss']
 })
 export class ArtistImagesComponent implements OnInit {
-  url = "img/artist";
+  url = 'img/artist';
 
   constructor() { }
 
