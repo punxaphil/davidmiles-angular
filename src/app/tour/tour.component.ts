@@ -51,7 +51,7 @@ export class TourComponent implements OnInit {
   }
 
   dayDiff(first: Date, second: Date): number {
-    return (second.getTime() - first.getTime()) / (1000 * 60 * 60 * 24);
+    return Math.round((second.getTime() - first.getTime()) / (1000 * 60 * 60 * 24));
   }
 
   orderByArray(values: any[], orderType: any) {
