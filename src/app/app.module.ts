@@ -10,7 +10,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {LayoutModule} from '@angular/cdk/layout';
-
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
@@ -25,18 +24,20 @@ import {VideoComponent} from './video/video.component';
 import {TextComponent} from './text/text.component';
 import {ReviewsComponent} from './reviews/reviews.component';
 import {PressComponent} from './press/press.component';
-import {ArtistImagesComponent } from './images/artist-images/artist-images.component';
-import {ImagesComponent } from './images/images.component';
+import {ArtistImagesComponent} from './images/artist-images/artist-images.component';
+import {ImagesComponent} from './images/images.component';
 import {TroubadourReferencesComponent} from './troubadour-references/troubadour-references.component';
 import {KeysPipe} from './pipe/keys.pipe';
 import {NgxImageGalleryModule} from 'ngx-image-gallery';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { TroubadourImagesComponent } from './images/troubadour-images/troubadour-images.component';
+import {GuestBookComponent} from './guestbook/guestbook.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'om', component: AboutComponent},
   {path: 'spelplan', component: TourComponent},
+  {path: 'gastbok', component: GuestBookComponent},
   {path: 'kontakt', component: ContactComponent},
   {path: 'discografi', component: DiscographyComponent},
   {path: 'video', component: VideoComponent},
@@ -56,6 +57,7 @@ const appRoutes: Routes = [
     HomeComponent,
     AboutComponent,
     TourComponent,
+    GuestBookComponent,
     ContactComponent,
     DiscographyComponent,
     VideoComponent,
