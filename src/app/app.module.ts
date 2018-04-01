@@ -31,6 +31,7 @@ import {TroubadourReferencesComponent} from './troubadour-references/troubadour-
 import {KeysPipe} from './pipe/keys.pipe';
 import {NgxImageGalleryModule} from 'ngx-image-gallery';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { TroubadourImagesComponent } from './images/troubadour-images/troubadour-images.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
   {path: 'recensioner', component: ReviewsComponent},
   {path: 'press', component: PressComponent},
   {path: 'artist-bilder', component: ArtistImagesComponent},
-  {path: 'troubadour-references', component: TroubadourReferencesComponent},
+  {path: 'trubadur-referenser', component: TroubadourReferencesComponent },
+  {path: 'trubadur-bilder', component: TroubadourImagesComponent},
   {path: '**', component: HomeComponent}
 ];
 
@@ -64,7 +66,8 @@ const appRoutes: Routes = [
     KeysPipe,
     ArtistImagesComponent,
     TroubadourReferencesComponent,
-    ImagesComponent
+    ImagesComponent,
+    TroubadourImagesComponent
   ],
   imports: [
     BrowserModule,
