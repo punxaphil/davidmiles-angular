@@ -8,19 +8,9 @@
   overflow-x: hidden;
 }
 
-.main,
-.mainnav,
-.navbar {
-  padding: 0;
-}
-
-.navbar {
-  height: 128px;
-}
-
 #sidebar {
   height: 100%;
-  width: 128px;
+  width: $toolbar-height;
   overflow-y: auto;
 
   div {
@@ -33,10 +23,6 @@
       color: $primary;
     }
   }
-}
-
-.main-content {
-  margin-top: 127px;
 }
 
 #loggedInLogo {

@@ -30,11 +30,29 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
   padding: 6px !important;
 }
 
-.mat-toolbar, .mat-sidenav-container {
+mat-sidenav {
+  position: fixed !important;
+  padding-top: $toolbar-height;
+}
+
+mat-toolbar {
   background-color: white;
+  padding-top: -$toolbar-height;
+  position: fixed;
+  z-index: 1000;
 }
 
 .mat-toolbar-single-row {
-  height: 128px !important;
+  height: $toolbar-height !important;
   padding: 0 !important;
+}
+
+mat-sidenav-container {
+  background-color: white;
+  padding-top: $toolbar-height;
+  min-height: 100%;
+}
+
+.mat-drawer-container {
+  background-color: white;
 }
