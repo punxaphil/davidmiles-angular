@@ -19,7 +19,6 @@ export class PressComponent implements OnInit {
       this.dataService.getPressAnnouncements(announcements => {
           this.announcements = announcements;
           this.announcements.forEach(x => {
-                //console.log(x.name);
             });
       });
       this.dataService.getPressPoster(posters => {

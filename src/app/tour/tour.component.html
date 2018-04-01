@@ -1,6 +1,8 @@
 <div>
   <div *ngIf="tour">
-    <img src="assets/images/spelplan.jpg"/>
+    <mat-card class="mt-2">
+      <img src="assets/images/spelplan.jpg" class="img-fluid" />
+    </mat-card>
 
     <div class="mb-2 bigger" *ngIf="tour.firstGig">
       <div class="text-primary">Nästa spelning {{tour.firstGig.distance}}</div>

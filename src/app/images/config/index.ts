@@ -7,7 +7,7 @@ export const DEMO_GALLERY_CONF_INLINE: GALLERY_CONF = {
   showCloseControl: false,
   showExtUrlControl: false,
   closeOnEsc: true,
-  showImageTitle: false,
+  showImageTitle: true,
   inline: true,
   backdropColor: 'default'
 };

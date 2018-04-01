@@ -65,4 +65,8 @@ export class DataService {
   getPressPoster(successCallback) {
     this.githubApi.getFileFromRepo('press/affisch', successCallback);
   }
+
+  getImageTitles(fileName: string, successCallback, errorCallback) {
+    this.githubApi.getFileFromRepo(fileName, successCallback, errorCallback);
+  }
 }

@@ -10,6 +10,7 @@ import {DataService} from '../services/data.service';
 })
 export class ImagesComponent implements OnInit {
   @Input() imagesPath = '';
+  @Input() showThumbnails: boolean;
   public showConf = false;
 
   @ViewChild('ngxImageGallery') ngxImageGallery: NgxImageGalleryComponent;
@@ -21,25 +22,41 @@ export class ImagesComponent implements OnInit {
 
   // gallery images
   images: GALLERY_IMAGE[] = [];
+  imagesTitles;
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
+    this.dataService.getImageTitles("img/artist/artist-bilder.json", titles => {
+      this.imagesTitles = titles;
+      this.initGallery();
+    }, errors => {
+      console.log(errors);
+      this.initGallery();
+    });
+  }
+
+  initGallery() {
     this.dataService.getPressImages(this.imagesPath, images => {
       images.forEach(x => {
         if (!x.path.match('/thumb')) {
           const lastIndexOfSlash = x.download_url.lastIndexOf('/');
           const filename = x.download_url.substr(lastIndexOfSlash + 1);
+          let title;
+          this.imagesTitles.forEach(y => {
+            if (y.url === x.path) {
+              title = y.text;
+            }
+          });
           const image: GALLERY_IMAGE = {
             url: x.download_url,
             altText: x.name,
+            title: title,
             thumbnailUrl: x.download_url.substr(0, lastIndexOfSlash) + '/thumb/' + filename
           };
           this.images.push(image);
-
         }
-
       });
       this.openGallery(0);
     });
