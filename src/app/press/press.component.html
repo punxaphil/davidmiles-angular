@@ -5,7 +5,7 @@
   </ng-container>
 
 
-  <div *ngIf="posters.length > 0" class="pressImages">Affisch (PDF)</div>
+  <div *ngIf="posters.length > 0" class="pressImages mt-3">Affisch (PDF)</div>
   <div class="d-flex flex-wrap">
     <mat-card *ngFor="let poster of posters">
       <a [href]="poster.download_url" target="_blank">
