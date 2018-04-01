@@ -1,12 +1,12 @@
-<div [class.example-is-mobile]="mobileQuery.matches" style="height: 100%">
-  <mat-toolbar color="primary" class="example-toolbar">
+<div style="height: 100%">
+  <mat-toolbar color="primary">
     <mat-icon class="ml-3" color="gray" (click)="sideNav.toggle()" *ngIf="mobileQuery.matches">menu</mat-icon>
     <img id="loggedInLogo" src="assets/images/guitar-burning.gif" *ngIf="isLoggedIn">
     <img class="" src="assets/images/drawer_photo.jpg"  *ngIf="!mobileQuery.matches"/>
     <img class="logo ml-4 mt-4 mb-3" src="assets/images/logo.png"/>
   </mat-toolbar>
 
-  <mat-sidenav-container style="min-height: 100%" class="example-sidenav-container">
+  <mat-sidenav-container style="min-height: 100%">
     <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!this.mobileQuery.matches"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="128">
       <div class="sidebar-offcanvas" id="sidebar" role="navigation">
@@ -23,8 +23,8 @@
         <div><a routerLinkActive="active" routerLink="/press">Press</a></div>
         <div><a routerLinkActive="active" routerLink="/artist-bilder">Bilder</a></div>
         <div class="menu-header text-primary">TRUBADUREN</div>
-        <div><a routerLinkActive="active" routerLink="/trubadur-bilder">Bilder</a></div>
-        <div><a routerLinkActive="active" routerLink="/trubadur-referencer">Referenser</a></div>
+        <div><a routerLinkActive="active" routerLink="/troubadour-bilder">Bilder</a></div>
+        <div><a routerLinkActive="active" routerLink="/troubadour-references">Referenser</a></div>
       </div>
     </mat-sidenav>
 

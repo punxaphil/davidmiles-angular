@@ -26,6 +26,7 @@ import {TextComponent} from './text/text.component';
 import {ReviewsComponent} from './reviews/reviews.component';
 import {PressComponent} from './press/press.component';
 import {ArtistImagesComponent} from './artist-images/artist-images.component';
+import {TroubadourReferencesComponent} from './troubadour-references/troubadour-references.component';
 import {KeysPipe} from './pipe/keys.pipe';
 import {NgxImageGalleryModule} from 'ngx-image-gallery';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
   {path: 'recensioner', component: ReviewsComponent},
   {path: 'press', component: PressComponent},
   {path: 'artist-bilder', component: ArtistImagesComponent},
+  {path: 'troubadour-references', component: TroubadourReferencesComponent},
   {path: '**', component: HomeComponent}
 ];
 
@@ -59,7 +61,8 @@ const appRoutes: Routes = [
     ReviewsComponent,
     PressComponent,
     KeysPipe,
-    ArtistImagesComponent
+    ArtistImagesComponent,
+    TroubadourReferencesComponent
   ],
   imports: [
     BrowserModule,
