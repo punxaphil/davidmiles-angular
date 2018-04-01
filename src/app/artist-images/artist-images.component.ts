@@ -10,11 +10,11 @@ import { DataService } from '../services/data.service';
 })
 export class ArtistImagesComponent implements OnInit {
 
-  public showConf = true;
+  public showConf = false;
 
   @ViewChild('ngxImageGallery') ngxImageGallery: NgxImageGalleryComponent;
 
-  title = 'Demo App';
+  title = 'Bilder';
 
   // gallery configuration
   conf: GALLERY_CONF = DEMO_GALLERY_CONF_INLINE;
@@ -25,25 +25,24 @@ export class ArtistImagesComponent implements OnInit {
     constructor(private dataService: DataService) {}
 
     ngOnInit() {
-      this.dataService.getPressImages(images => {
-        let tempImages = images;
-        tempImages.forEach(x => {
-          if (!x.path.match("/thumb")) {
-              var filename = x.download_url.substr(x.download_url.lastIndexOf('/') + 1);
-            let image: GALLERY_IMAGE =
-              {
-                url: x.download_url,
-                altText: x.name,
-                thumbnailUrl: x.download_url.substr(0, x.download_url.lastIndexOf('/')) + "/thumb/" + filename
-              };
-            this.images.push(image);
-             
-          }
-           
+        this.dataService.getPressImages(images => {
+            let tempImages = images;
+            tempImages.forEach(x => {
+                if (!x.path.match("/thumb")) {
+                    var filename = x.download_url.substr(x.download_url.lastIndexOf('/') + 1);
+                    let image: GALLERY_IMAGE =
+                    {
+                        url: x.download_url,
+                        altText: x.name,
+                        thumbnailUrl: x.download_url.substr(0, x.download_url.lastIndexOf('/')) + "/thumb/" + filename
+                    };
+                    this.images.push(image);
+
+                }
+
+            });
+            this.openGallery(0);
         });
-        this.openGallery(0);
-    });
-      console.log(this.images);
     }
 
     // METHODS
@@ -89,7 +88,7 @@ export class ArtistImagesComponent implements OnInit {
   // callback on gallery image clicked
   galleryImageClicked(index) {
     console.info('Gallery image clicked with index ', index);
-    // this.ngxImageGallery.open(index);
+    this.ngxImageGallery.open(index);
   }
 
   // callback on gallery image changed
