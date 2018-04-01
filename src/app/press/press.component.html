@@ -1,5 +1,5 @@
 <div vertical layout center>
-  <div *ngIf="announcements.length > 0">Pressmeddelande</div>
+  <div *ngIf="announcements && announcements.length > 0">Pressmeddelande</div>
   <ng-container *ngFor="let announcement of announcements">
     <a [href]="announcement.path" target="_blank">{{announcement.name}}</a><br />
   </ng-container>
