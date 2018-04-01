@@ -20,7 +20,7 @@ export class ArtistImagesComponent implements OnInit {
   conf: GALLERY_CONF = DEMO_GALLERY_CONF_INLINE;
 
   // gallery images
-  images: GALLERY_IMAGE[] = [];//DEMO_GALLERY_IMAGE;
+  images: GALLERY_IMAGE[] = [];
 
     constructor(private dataService: DataService) {}
 
@@ -45,14 +45,10 @@ export class ArtistImagesComponent implements OnInit {
         });
     }
 
-    // METHODS
-  // open gallery
   openGallery(index: number = 0) {
-    // console.log(this.ngxImageGallery);
      this.ngxImageGallery.open(index);
   }
 
-  // close gallery
   closeGallery() {
      this.ngxImageGallery.close();
   }
@@ -73,32 +69,24 @@ export class ArtistImagesComponent implements OnInit {
   }
 
   /**************************************************/
-
-  // EVENTS
   // callback on gallery opened
   galleryOpened(index) {
-    console.info('Gallery opened at index ', index);
   }
 
   // callback on gallery closed
   galleryClosed() {
-    console.info('Gallery closed.');
   }
 
   // callback on gallery image clicked
   galleryImageClicked(index) {
-    console.info('Gallery image clicked with index ', index);
     this.ngxImageGallery.open(index);
   }
 
   // callback on gallery image changed
   galleryImageChanged(index) {
-    console.info('Gallery image changed to index ', index);
   }
 
   // callback on user clicked delete button
   deleteImage(index) {
-    console.info('Delete image at index ', index);
   }
-
 }
