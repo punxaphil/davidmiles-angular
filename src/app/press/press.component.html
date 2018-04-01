@@ -1,8 +1,8 @@
 <div vertical layout center>
-    <div>Pressmeddelande</div>
-    <ng-container *ngFor="let announcement of announcements">
-        <a [href]="announcement.path" target="_blank">{{announcement.name}}</a><br />
-    </ng-container>
+  <div>Pressmeddelande</div>
+  <ng-container *ngFor="let announcement of announcements">
+    <a [href]="announcement.path" target="_blank">{{announcement.name}}</a><br />
+  </ng-container>
 
 
   <div class="pressImages">Affisch (PDF)</div>
@@ -16,22 +16,6 @@
   </div>
 
   <div class="pressImages">Pressbilder</div>
+  <images-component [imagesPath]="url" [showThumbnails]='true'></images-component>
 
-    <!--<div *ngFor="let image of images">
-        <mat-card>
-            <a [href]="image.path" data-lightbox="image-1">
-                <img [src]="image.thumbnail" />
-                <a [href]="image.download_url" target="_blank">Klicka här för att ladda ner</a>
-            </a>
-        </mat-card>
-    </div>-->
-
-    <div #thumbnails id="thumbnails">
-        <ng-container *ngFor="let image of images">
-            <a [href]="image.download_url">
-                <img [src]="image.thumbnail" target="_blank" />
-            </a>
-        </ng-container>
-        <!--<image-component ([images])="images"></image-component>-->
-    </div>
 </div>

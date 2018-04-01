@@ -25,7 +25,8 @@ import {VideoComponent} from './video/video.component';
 import {TextComponent} from './text/text.component';
 import {ReviewsComponent} from './reviews/reviews.component';
 import {PressComponent} from './press/press.component';
-import {ArtistImagesComponent} from './artist-images/artist-images.component';
+import {ArtistImagesComponent } from './images/artist-images/artist-images.component';
+import {ImagesComponent } from './images/images.component';
 import {TroubadourReferencesComponent} from './troubadour-references/troubadour-references.component';
 import {KeysPipe} from './pipe/keys.pipe';
 import {NgxImageGalleryModule} from 'ngx-image-gallery';
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
     PressComponent,
     KeysPipe,
     ArtistImagesComponent,
-    TroubadourReferencesComponent
+    TroubadourReferencesComponent,
+    ImagesComponent
   ],
   imports: [
     BrowserModule,

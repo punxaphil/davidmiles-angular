@@ -1,15 +1,16 @@
-import {Component, ViewChild, OnInit} from '@angular/core';
+import { Component, ViewChild, OnInit, Input} from '@angular/core';
 import {DEMO_GALLERY_CONF_INLINE, DEMO_GALLERY_IMAGE} from './config';
 import { GALLERY_CONF, GALLERY_IMAGE, NgxImageGalleryComponent } from 'ngx-image-gallery';
 import { DataService } from '../services/data.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'artist-images.component.html',
-  styleUrls: ['artist-images.component.css']
+  selector: 'images-component',
+  templateUrl: 'images.component.html',
+  styleUrls: ['images.component.css']
 })
-export class ArtistImagesComponent implements OnInit {
-
+export class ImagesComponent implements OnInit {
+  @Input() imagesPath = "";
+  @Input() showThumbnails: boolean;
   public showConf = false;
 
   @ViewChild('ngxImageGallery') ngxImageGallery: NgxImageGalleryComponent;
@@ -22,10 +23,11 @@ export class ArtistImagesComponent implements OnInit {
   // gallery images
   images: GALLERY_IMAGE[] = [];
 
-    constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+  }
 
-    ngOnInit() {
-        this.dataService.getPressImages(images => {
+  ngOnInit() {
+    this.dataService.getPressImages(this.imagesPath, images => {
             let tempImages = images;
             tempImages.forEach(x => {
                 if (!x.path.match("/thumb")) {
@@ -34,7 +36,7 @@ export class ArtistImagesComponent implements OnInit {
                     {
                         url: x.download_url,
                         altText: x.name,
-                        thumbnailUrl: x.download_url.substr(0, x.download_url.lastIndexOf('/')) + "/thumb/" + filename
+                        thumbnailUrl: this.showThumbnails ? x.download_url.substr(0, x.download_url.lastIndexOf('/')) + "/thumb/" + filename : x.download_url
                     };
                     this.images.push(image);
 

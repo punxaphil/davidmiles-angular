@@ -10,7 +10,7 @@ import { IMedia } from '../models/media';
 export class PressComponent implements OnInit {
     announcements: Array<IMedia>;
     images: Array<IMedia> = [];
-  //@ViewChild('thumbnails') thumbnails;
+    url = "press/img";
     
   constructor(private dataService: DataService) {}
 
@@ -21,19 +21,5 @@ export class PressComponent implements OnInit {
                 //console.log(x.name);
             });
         });
-
-      this.dataService.getPressImages(images => {
-          let tempImages = images;
-          tempImages.forEach(x => {
-            if (!x.path.match("/thumb")) {
-                var filename = x.download_url.substr(x.download_url.lastIndexOf('/') + 1);
-                x.thumbnail = x.download_url.substr(0, x.download_url.lastIndexOf('/')) + "/thumb/" + filename;
-                this.images.push(x);
-              }
-           // $("thumbnails").lightGallery();
-            //this.thumbnails.lightGallery();
-          });
-        });
     }
-
 }
