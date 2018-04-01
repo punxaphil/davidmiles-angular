@@ -1,4 +1,6 @@
 <div *ngFor="let review of reviews">
-  <img class="w-25 mt-3 mb-1" *ngIf="review.hasImage" [src]="review.albumImage" />
-  <a *ngIf="review.link" target="_blank" [href]="review.link">{{review.text}}</a>
+  <mat-card class="mb-2 mt-2" style="display: inline-block;" *ngIf="review.hasImage">
+    <img [src]="review.albumImage" style="max-width: 150px;" />
+  </mat-card>
+    <a *ngIf="review.link" target="_blank" [href]="review.link">{{review.text}}</a>
 </div>
