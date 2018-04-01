@@ -8,7 +8,7 @@ import { ITour, IGig } from '../models';
   styleUrls: ['./tour.component.scss']
 })
 export class TourComponent implements OnInit {
-  tour: ITour = {};
+  tour: ITour;
 
   constructor(private dataService: DataService) {}
 

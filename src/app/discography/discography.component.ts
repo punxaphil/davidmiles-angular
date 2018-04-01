@@ -9,7 +9,7 @@ import { IAlbum } from '../models';
 })
 export class DiscographyComponent implements OnInit {
 
-  albums: Array<IAlbum> = [];
+  albums: Array<IAlbum>;
 
   constructor(private dataService: DataService) {}
 
