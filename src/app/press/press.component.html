@@ -1,21 +1,19 @@
 <div vertical layout center>
-  <div>Pressmeddelande</div>
+  <div *ngIf="announcements.length > 0">Pressmeddelande</div>
   <ng-container *ngFor="let announcement of announcements">
     <a [href]="announcement.path" target="_blank">{{announcement.name}}</a><br />
   </ng-container>
 
 
-  <div class="pressImages">Affisch (PDF)</div>
-
-  <div data-bind="foreach: posters">
-    <mat-card>
-      <a data-bind="attr: {href: url}">
-        <img data-bind="attr: {src: thumb}">
+  <div *ngIf="posters.length > 0" class="pressImages">Affisch (PDF)</div>
+  <div class="d-flex flex-wrap">
+    <mat-card *ngFor="let poster of posters">
+      <a [href]="poster.download_url" target="_blank">
+        <img [src]="poster.thumbnail" />
       </a>
     </mat-card>
   </div>
 
-  <div class="pressImages">Pressbilder</div>
   <images-component [imagesPath]="url" [showThumbnails]='true'></images-component>
 
 </div>

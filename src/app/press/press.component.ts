@@ -22,8 +22,22 @@ export class PressComponent implements OnInit {
                 //console.log(x.name);
             });
       });
-      this.dataService.getPressAffisch(affisch => {
-
+      this.dataService.getPressPoster(posters => {
+        let tempPosters = posters;
+        tempPosters.forEach(x => {
+          if (!x.path.match(".pdf")) {
+            var filename = x.download_url.substr(0, x.download_url.lastIndexOf('.'));
+            let poster: IMedia =
+              {
+                name: x.name,
+                path: x.path,
+                download_url: filename + '.pdf',
+                thumbnail: x.download_url
+              };
+            console.log(poster);
+            this.posters.push(poster);
+          }
+        });
       });
     }
 }

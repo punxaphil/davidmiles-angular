@@ -62,7 +62,7 @@ export class DataService {
     this.githubApi.getFileFromRepo(imagesPath, successCallback);
   }
 
-  getPressAffisch(successCallback) {
+  getPressPoster(successCallback) {
     this.githubApi.getFileFromRepo('press/affisch', successCallback);
   }
 }
