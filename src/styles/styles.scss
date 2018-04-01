@@ -2,6 +2,9 @@
 @import "~bootstrap/scss/bootstrap";
 @import "material";
 
+html {
+  margin-left: calc(100vw - 100%);
+}
 body {
   max-width: 900px;
   margin: auto;
