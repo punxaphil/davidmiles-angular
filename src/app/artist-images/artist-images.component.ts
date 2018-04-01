@@ -79,7 +79,14 @@ export class ArtistImagesComponent implements OnInit {
 
   // callback on gallery image clicked
   galleryImageClicked(index) {
-    this.ngxImageGallery.open(index);
+    let image = this.images[index];
+    var element = document.createElement('a');
+    element.setAttribute('href', image.url);
+    element.setAttribute('target', '_blank');
+    element.setAttribute('download', image.altText);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
   }
 
   // callback on gallery image changed

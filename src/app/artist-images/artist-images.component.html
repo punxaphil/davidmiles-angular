@@ -13,9 +13,7 @@
                          (onImageChange)="galleryImageChanged($event)"
                          (onDelete)="deleteImage($event)">
       </ngx-image-gallery>
-        <div class="d-flex justify-content-center downloadLink">
-          <a *ngIf="ngxImageGallery.activeImage" [href]="ngxImageGallery.activeImage.url" target="_blank">Ladda ner bild</a>
-        </div>
+        
     </mat-card-content>
   </div>
 
