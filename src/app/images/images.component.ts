@@ -10,7 +10,6 @@ import {DataService} from '../services/data.service';
 })
 export class ImagesComponent implements OnInit {
   @Input() imagesPath = '';
-  @Input() showThumbnails: boolean;
   public showConf = false;
 
   @ViewChild('ngxImageGallery') ngxImageGallery: NgxImageGalleryComponent;
@@ -35,7 +34,7 @@ export class ImagesComponent implements OnInit {
           const image: GALLERY_IMAGE = {
             url: x.download_url,
             altText: x.name,
-            thumbnailUrl: this.showThumbnails ? x.download_url.substr(0, lastIndexOfSlash) + '/thumb/' + filename : x.download_url
+            thumbnailUrl: x.download_url.substr(0, lastIndexOfSlash) + '/thumb/' + filename
           };
           this.images.push(image);
 
