@@ -10,7 +10,6 @@ import {DataService} from '../services/data.service';
 })
 export class ImagesComponent implements OnInit {
   @Input() imagesPath = '';
-  @Input() showThumbnails: boolean;
   public showConf = false;
 
   @ViewChild('ngxImageGallery') ngxImageGallery: NgxImageGalleryComponent;
