@@ -1,3 +1,8 @@
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
 @import "material";
+
+body {
+  max-width: 900px;
+  margin: auto;
+}

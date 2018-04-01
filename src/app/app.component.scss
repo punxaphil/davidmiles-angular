@@ -1,13 +1,6 @@
 @import "~styles/variables";
 @import "~bootstrap/scss/bootstrap";
 
-.container {
-  max-width: 900px;
-  background-color: white;
-  height: 100%;
-  overflow-x: hidden;
-}
-
 #sidebar {
   height: 100%;
   width: $toolbar-height;

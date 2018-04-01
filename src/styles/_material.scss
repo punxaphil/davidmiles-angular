@@ -40,6 +40,7 @@ mat-toolbar {
   padding-top: -$toolbar-height;
   position: fixed;
   z-index: 1000;
+  max-width: 900px;
 }
 
 .mat-toolbar-single-row {
@@ -55,4 +56,5 @@ mat-sidenav-container {
 
 .mat-drawer-container {
   background-color: white;
+  color: $body-color;
 }
