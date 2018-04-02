@@ -1,0 +1,12 @@
+@import "~styles/variables";
+@import "~bootstrap/scss/bootstrap";
+
+.fill-remaining {
+  flex: 1 1 auto;
+}
+
+::ng-deep .title {
+  font-family: $font-family-sans-serif !important;
+  padding-top: 0px !important;
+  font-size: $font-size-sm !important;
+}

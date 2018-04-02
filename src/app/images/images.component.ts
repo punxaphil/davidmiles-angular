@@ -6,7 +6,7 @@ import {DataService} from '../services/data.service';
 @Component({
   selector: 'app-images-component',
   templateUrl: 'images.component.html',
-  styleUrls: ['images.component.css']
+  styleUrls: ['images.component.scss']
 })
 export class ImagesComponent implements OnInit {
   @Input() imagesPath = '';
