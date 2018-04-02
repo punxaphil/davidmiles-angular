@@ -1,0 +1,8 @@
+@import "~styles/variables";
+@import "~bootstrap/scss/bootstrap";
+
+textarea, label {
+  width: 100%;
+  min-height: 400px;
+}
+

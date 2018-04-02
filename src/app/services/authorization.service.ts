@@ -16,6 +16,10 @@ export class AuthorizationService {
     return sessionStorage.getItem(USERNAME) != null && sessionStorage.getItem(PASSWORD) != null;
   }
 
+  getGithubWithCredentials() {
+    return new GitHub({username: sessionStorage.getItem(USERNAME), password: sessionStorage.getItem(PASSWORD)});
+  }
+
   logout() {
     sessionStorage.removeItem(USERNAME);
     sessionStorage.removeItem(PASSWORD);

@@ -2,18 +2,23 @@ import {Injectable} from '@angular/core';
 import {GitHubApi} from '../models';
 import 'rxjs/add/operator/map';
 import {HttpClient, HttpParams} from '@angular/common/http';
+import {AuthorizationService} from './authorization.service';
 
 @Injectable()
 export class DataService {
 
   private githubApi: GitHubApi;
 
-  constructor(private http: HttpClient) {
-    this.githubApi = new GitHubApi();
+  constructor(private http: HttpClient, private authorizationService: AuthorizationService) {
+    this.githubApi = new GitHubApi(authorizationService);
   }
 
   getTour(successCallback) {
     this.githubApi.getFileFromRepo('spelplan.json', successCallback);
+  }
+
+  saveTour(content, successCallback) {
+    this.githubApi.writeFile('spelplan.json', content, successCallback);
   }
 
   getAlbums(successCallback) {

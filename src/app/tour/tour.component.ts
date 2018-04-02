@@ -10,12 +10,15 @@ import { ITour, IGig } from '../models';
 export class TourComponent implements OnInit {
   tour: ITour;
 
+  static dayDiff(first: Date, second: Date): number {
+    return Math.round((second.getTime() - first.getTime()) / (1000 * 60 * 60 * 24));
+  }
+
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.dataService.getTour(response => {
-      const gigs: Array<IGig> = response;
-      this.tour = this.createTour(gigs);
+      this.tour = this.createTour(response);
     });
   }
 
@@ -35,7 +38,7 @@ export class TourComponent implements OnInit {
     });
     const first = upcomingGigs[0];
     if (first) {
-      const diff = this.dayDiff(now, first.dateObject);
+      const diff = TourComponent.dayDiff(now, first.dateObject);
       if (diff === 0) {
         first.distance = 'är idag!';
       } else {
@@ -48,10 +51,6 @@ export class TourComponent implements OnInit {
     tour.firstGig = first;
     tour.hasUpcomingGigs = upcomingGigs.length > 0;
     return tour;
-  }
-
-  dayDiff(first: Date, second: Date): number {
-    return Math.round((second.getTime() - first.getTime()) / (1000 * 60 * 60 * 24));
   }
 
   orderByArray(values: any[], orderType: any) {

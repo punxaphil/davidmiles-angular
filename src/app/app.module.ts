@@ -3,7 +3,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-import {HttpModule} from '@angular/http';
 import {EmbedVideo} from 'ngx-embed-video';
 import {MatButtonModule, MatCardModule, MatInputModule, MatListModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -14,6 +13,7 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {TourComponent} from './tour/tour.component';
+import {TourEditComponent} from './tour-edit/tour-edit.component';
 import {DataService} from './services/data.service';
 import {ContactComponent} from './contact/contact.component';
 import {DiscographyComponent} from './discography/discography.component';
@@ -37,6 +37,7 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'om', component: AboutComponent},
   {path: 'spelplan', component: TourComponent},
+  {path: 'spelplan-redigera', component: TourEditComponent},
   {path: 'gastbok', component: GuestBookComponent},
   {path: 'kontakt', component: ContactComponent},
   {path: 'discografi', component: DiscographyComponent},
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     HomeComponent,
     AboutComponent,
     TourComponent,
+    TourEditComponent,
     GuestBookComponent,
     ContactComponent,
     DiscographyComponent,
@@ -73,7 +75,6 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes, {useHash: true}),
     EmbedVideo.forRoot(),
