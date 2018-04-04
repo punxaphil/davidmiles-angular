@@ -1,7 +1,7 @@
 [
   {
     "date": "2017-02-11",
-    "place": "Odd Fellow Ängelholm1"
+    "place": "Odd Fellow Ängelholm"
   },
   {
     "date": "2017-02-23",
@@ -97,14 +97,30 @@
   },
   {
     "date": "2017-12-06",
-    "place": "Privat.  Falkenberg"
+    "place": "Privat. Falkenberg"
   },
   {
-    "date": "2017-12-31",
-    "place": "Privat.  Bunkeflo"
+    "date": "2017-12-14",
+    "place": "Restaurang Sikrot i Ängelholm. Julmusik."
   },
   {
-    "date": "2018-12-31",
-    "place": "Wembley Stadium"
+    "date": "2017-12-21",
+    "place": "Restaurang Sikrot i Ängelholm. Julmusik."
+  },
+  {
+    "date": "2018-03-01",
+    "place": "Restaurang Sikrot i Ängelholm. Tolkar Håkan Hellström."
+  },
+  {
+    "date": "2018-07-14",
+    "place": "Restaurang Strandkanten Ugglarp"
+  },
+  {
+    "date": "2018-07-28",
+    "place": "Restaurang Strandkanten Ugglarp"
+  },
+  {
+    "date": "2018-08-18",
+    "place": "Privat bröllop. Kungsbacka"
   }
 ]
