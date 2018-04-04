@@ -17,8 +17,8 @@ export class DataService {
     this.githubApi.getFileFromRepo('spelplan.json', successCallback);
   }
 
-  saveTour(content, successCallback) {
-    this.githubApi.writeFile('spelplan.json', content, successCallback);
+  saveTour(content, original, successCallback) {
+    this.githubApi.writeFile('spelplan.json', content, original, successCallback);
   }
 
   getAlbums(successCallback) {

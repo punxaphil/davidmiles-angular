@@ -9,7 +9,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./tour-edit.component.scss']
 })
 export class TourEditComponent implements OnInit {
+  public static SAVED_TOUR_CONTENT = 'savedTourContent';
+  public static SAVED_TOUR_SHA = 'savedTourSha';
   tour: String;
+  private tourOriginal: any;
 
   constructor(private dataService: DataService, private router: Router) {
   }
@@ -21,9 +24,19 @@ export class TourEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getTour(response => {
-      this.tour = TourEditComponent.createTour(response);
-    });
+    const savedContent = localStorage.getItem(TourEditComponent.SAVED_TOUR_CONTENT);
+    if (savedContent) {
+      const savedSha = localStorage.getItem(TourEditComponent.SAVED_TOUR_SHA);
+      localStorage.removeItem(TourEditComponent.SAVED_TOUR_CONTENT);
+      localStorage.removeItem(TourEditComponent.SAVED_TOUR_SHA);
+      this.tourOriginal = {data: savedContent, sha: savedSha};
+      this.tour = TourEditComponent.createTour(JSON.parse(savedContent));
+    } else {
+      this.dataService.getTour(response => {
+        this.tourOriginal = response;
+        this.tour = TourEditComponent.createTour(JSON.parse(response.data));
+      });
+    }
   }
 
   save() {
@@ -39,7 +52,9 @@ export class TourEditComponent implements OnInit {
         };
         return gig;
       });
-      this.dataService.saveTour(JSON.stringify(gigs, null, 2), () => {
+      this.dataService.saveTour(JSON.stringify(gigs, null, 2), this.tourOriginal, (content, sha) => {
+        localStorage.setItem(TourEditComponent.SAVED_TOUR_CONTENT, content);
+        localStorage.setItem(TourEditComponent.SAVED_TOUR_SHA, sha);
         this.router.navigate(['spelplan']);
       });
     } catch (e) {
@@ -50,7 +65,7 @@ export class TourEditComponent implements OnInit {
   }
 
   cancel() {
-
+    this.router.navigate(['spelplan']);
   }
 
 }

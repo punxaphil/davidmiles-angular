@@ -1,5 +1,5 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import * as GitHub from 'github-api';
+import * as Octokit from '@octokit/rest';
 
 const PASSWORD = 'password';
 const USERNAME = 'username';
@@ -7,17 +7,23 @@ const USERNAME = 'username';
 @Injectable()
 export class AuthorizationService {
   loggedInUpdated = new EventEmitter<boolean>();
+  private octokit: Octokit;
+
+  static getUsername(): string {
+    return sessionStorage.getItem(USERNAME);
+  }
+
+  static getPassword() {
+    return sessionStorage.getItem(PASSWORD);
+  }
 
   constructor() {
     this.loggedInUpdated.emit();
+    this.octokit = new Octokit();
   }
 
-  isLoggedIn() {
-    return sessionStorage.getItem(USERNAME) != null && sessionStorage.getItem(PASSWORD) != null;
-  }
-
-  getGithubWithCredentials() {
-    return new GitHub({username: sessionStorage.getItem(USERNAME), password: sessionStorage.getItem(PASSWORD)});
+  static isLoggedIn() {
+    return AuthorizationService.getUsername() != null && AuthorizationService.getPassword() != null;
   }
 
   logout() {
@@ -27,12 +33,16 @@ export class AuthorizationService {
   }
 
   login(username: string, password: string) {
-    const gh = new GitHub({username: username, password: password});
-    return gh.getUser().getEmails()
-      .then(() => {
-        sessionStorage.setItem(USERNAME, username);
-        sessionStorage.setItem(PASSWORD, password);
-        this.loggedInUpdated.emit(true);
-      });
+    const auth: Octokit.Auth = {
+      type: 'basic',
+      username: username,
+      password: password
+    };
+    this.octokit.authenticate(auth);
+    return this.octokit.users.getEmails({}).then(() => {
+      sessionStorage.setItem(USERNAME, username);
+      sessionStorage.setItem(PASSWORD, password);
+      this.loggedInUpdated.emit(true);
+    });
   }
 }

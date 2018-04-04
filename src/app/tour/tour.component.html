@@ -2,6 +2,7 @@
   <div *ngIf="tour">
       <img src="assets/images/spelplan.jpg" />
 
+    <button *ngIf="isLoggedIn" routerLink="/spelplan-redigera">Redigera</button>
     <div class="mb-2 bigger" *ngIf="tour.firstGig">
       <div class="text-primary">Nästa spelning {{tour.firstGig.distance}}</div>
       <div>Datum: {{tour.firstGig.date}}</div>

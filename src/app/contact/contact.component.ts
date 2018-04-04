@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isLoggedIn = this.authorizationService.isLoggedIn();
+    this.isLoggedIn = AuthorizationService.isLoggedIn();
     this.authorizationService.loggedInUpdated.subscribe((loggedIn: boolean) => this.isLoggedIn = loggedIn);
   }
 

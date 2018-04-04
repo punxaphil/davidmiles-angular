@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
-import { ITour, IGig } from '../models';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../services/data.service';
+import {ITour, IGig} from '../models';
+import {AuthorizationService} from '../services/authorization.service';
+import {TourEditComponent} from '../tour-edit/tour-edit.component';
 
 @Component({
   selector: 'app-tour',
@@ -9,17 +11,25 @@ import { ITour, IGig } from '../models';
 })
 export class TourComponent implements OnInit {
   tour: ITour;
+  isLoggedIn: boolean;
 
   static dayDiff(first: Date, second: Date): number {
     return Math.round((second.getTime() - first.getTime()) / (1000 * 60 * 60 * 24));
   }
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit() {
-    this.dataService.getTour(response => {
-      this.tour = this.createTour(response);
-    });
+    const savedContent = localStorage.getItem(TourEditComponent.SAVED_TOUR_CONTENT);
+    if (savedContent) {
+      this.tour = this.createTour(JSON.parse(savedContent));
+    } else {
+      this.dataService.getTour(response => {
+        this.tour = this.createTour(JSON.parse(response.data));
+      });
+    }
+    this.isLoggedIn = AuthorizationService.isLoggedIn();
   }
 
   private createTour(gigs: Array<IGig>) {

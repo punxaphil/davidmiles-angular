@@ -4,6 +4,3 @@ declare var module: NodeModule;
 interface NodeModule {
   id: string;
 }
-
-/* GitHub API */
-declare module 'github-api';

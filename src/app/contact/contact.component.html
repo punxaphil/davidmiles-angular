@@ -25,6 +25,6 @@
 
   <div>
     Administratör: <a *ngIf="!isLoggedIn" routerLink="/login">Logga in</a>
-    <a *ngIf="isLoggedIn" (click)="logout()">Logga ut</a>
+    <a *ngIf="isLoggedIn" (click)="logout()" routerLink="/">Logga ut</a>
   </div>
 </div>
