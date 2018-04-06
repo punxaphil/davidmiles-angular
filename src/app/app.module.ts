@@ -31,14 +31,12 @@ import {KeysPipe} from './pipe/keys.pipe';
 import {NgxImageGalleryModule} from 'ngx-image-gallery';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { TroubadourImagesComponent } from './troubadour-images/troubadour-images.component';
-import {GuestBookComponent} from './guestbook/guestbook.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'om', component: AboutComponent},
   {path: 'spelplan', component: TourComponent},
   {path: 'spelplan-redigera', component: TourEditComponent},
-  {path: 'gastbok', component: GuestBookComponent},
   {path: 'kontakt', component: ContactComponent},
   {path: 'discografi', component: DiscographyComponent},
   {path: 'video', component: VideoComponent},
@@ -59,7 +57,6 @@ const appRoutes: Routes = [
     AboutComponent,
     TourComponent,
     TourEditComponent,
-    GuestBookComponent,
     ContactComponent,
     DiscographyComponent,
     VideoComponent,
