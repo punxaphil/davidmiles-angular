@@ -9,5 +9,6 @@ export const DEMO_GALLERY_CONF_INLINE: GALLERY_CONF = {
   closeOnEsc: true,
   showImageTitle: true,
   inline: true,
+  showArrows: false,
   backdropColor: 'default'
 };
