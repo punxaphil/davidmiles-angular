@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../services/data.service';
-import {ITour, IGig} from '../models';
+import {IGig} from '../models';
 import {Router} from '@angular/router';
 
 @Component({
@@ -32,9 +32,9 @@ export class TourEditComponent implements OnInit {
       this.tourOriginal = {data: savedContent, sha: savedSha};
       this.tour = TourEditComponent.createTour(JSON.parse(savedContent));
     } else {
-      this.dataService.getTour(response => {
-        this.tourOriginal = response;
-        this.tour = TourEditComponent.createTour(JSON.parse(response.data));
+      this.dataService.getTour((data, sha) => {
+        this.tourOriginal = {data, sha};
+        this.tour = TourEditComponent.createTour(data);
       });
     }
   }

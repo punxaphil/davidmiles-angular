@@ -25,8 +25,8 @@ export class TourComponent implements OnInit {
     if (savedContent) {
       this.tour = this.createTour(JSON.parse(savedContent));
     } else {
-      this.dataService.getTour(response => {
-        this.tour = this.createTour(JSON.parse(response.data));
+      this.dataService.getTour(data => {
+        this.tour = this.createTour(data);
       });
     }
     this.isLoggedIn = AuthorizationService.isLoggedIn();

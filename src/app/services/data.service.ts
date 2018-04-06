@@ -3,6 +3,7 @@ import {GitHubApi} from '../models';
 import 'rxjs/add/operator/map';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {AuthorizationService} from './authorization.service';
+import { HttpModule } from '@angular/http';
 
 @Injectable()
 export class DataService {
@@ -14,7 +15,7 @@ export class DataService {
   }
 
   getTour(successCallback) {
-    this.githubApi.getFileFromRepo('spelplan.json', successCallback);
+    this.githubApi.getJsonFileFromRepo('spelplan.json', successCallback);
   }
 
   saveTour(content, original, successCallback) {
@@ -22,11 +23,11 @@ export class DataService {
   }
 
   getAlbums(successCallback) {
-    this.githubApi.getFileFromRepo('albums.json', successCallback);
+    this.githubApi.getJsonFileFromRepo('albums.json', successCallback);
   }
 
   getVideos(successCallback) {
-    this.githubApi.getFileFromRepo('video-artist.json', successCallback);
+    this.githubApi.getJsonFileFromRepo('video-artist.json', successCallback);
   }
 
   getYouTubeVideoTitle(id: string, callback) {
@@ -48,30 +49,30 @@ export class DataService {
   }
 
   getLyrics(successCallback) {
-    this.githubApi.getFileFromRepo('texter.json', successCallback);
+    this.githubApi.getJsonFileFromRepo('texter.json', successCallback);
   }
 
   getLyric(textFile: string, successCallback, errorCallback) {
-    this.githubApi.getFileFromRepo('lyrics/' + textFile, successCallback, errorCallback);
+    this.githubApi.getTxtFileFromRepo('lyrics/' + textFile, successCallback, errorCallback);
   }
 
   getReviews(successCallback) {
-    this.githubApi.getFileFromRepo('recensioner.json', successCallback);
+    this.githubApi.getJsonFileFromRepo('recensioner.json', successCallback);
   }
 
   getPressAnnouncements(successCallback) {
-    this.githubApi.getFileFromRepo('press/announcements', successCallback);
+    this.githubApi.getJsonFileFromRepo('press/announcements', successCallback);
   }
 
   getPressImages(imagesPath: string, successCallback) {
-    this.githubApi.getFileFromRepo(imagesPath, successCallback);
+    this.githubApi.getJsonFileFromRepo(imagesPath, successCallback);
   }
 
   getPressPoster(successCallback) {
-    this.githubApi.getFileFromRepo('press/affisch', successCallback);
+    this.githubApi.getJsonFileFromRepo('press/affisch', successCallback);
   }
 
   getImageTitles(fileName: string, successCallback, errorCallback) {
-    this.githubApi.getFileFromRepo(fileName, successCallback, errorCallback);
+    this.githubApi.getJsonFileFromRepo(fileName, successCallback, errorCallback);
   }
 }

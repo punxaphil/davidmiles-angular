@@ -23,7 +23,7 @@ export class GitHubApi {
     }).join(''));
   }
 
-  getFileFromRepo(path: string, successCallback, errorCallback?) {
+  getJsonFileFromRepo(path: string, successCallback, errorCallback?) {
     const params: Octokit.ReposGetContentParams = {
       owner: GitHubApi.OWNER,
       repo: GitHubApi.REPO,
@@ -32,7 +32,29 @@ export class GitHubApi {
     };
     this.octokit.repos.getContent(params)
       .then(response => {
-        successCallback({data: GitHubApi.b64DecodeUnicode(response.data.content), sha: response.data.sha});
+        let data;
+        if (response.data.content) {
+          data = JSON.parse(GitHubApi.b64DecodeUnicode(response.data.content));
+        } else {
+          data = response.data;
+        }
+        successCallback(data, response.data.sha);
+      }).catch(reason => {
+      console.error(reason);
+      errorCallback(reason);
+    });
+  }
+
+  getTxtFileFromRepo(path: string, successCallback, errorCallback?) {
+    const params: Octokit.ReposGetContentParams = {
+      owner: GitHubApi.OWNER,
+      repo: GitHubApi.REPO,
+      path: path,
+      ref: GitHubApi.BRANCH
+    };
+    this.octokit.repos.getContent(params)
+      .then(response => {
+        successCallback(GitHubApi.b64DecodeUnicode(response.data.content), response.data.sha);
       }).catch(reason => {
       console.error(reason);
       errorCallback(reason);
