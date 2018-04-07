@@ -1,39 +1,9 @@
-<div fxLayout="row"
-     fxLayout.lt-md="column"
-     fxLayoutAlign="center">
-
-  <div fxFlex="80" style="margin: 2rem">
-    <mat-card-content>
-      <ngx-image-gallery #ngxImageGallery
-                         [images]="images"
-                         [conf]="conf"
-                         (onOpen)="galleryOpened($event)"
-                         (onClose)="galleryClosed()"
-                         (onImageClicked)="galleryImageClicked($event)"
-                         (onImageChange)="galleryImageChanged($event)"
-                         (onDelete)="deleteImage($event)">
-      </ngx-image-gallery>
-    </mat-card-content>
-  </div>
-  <mat-card fxFlex="20" style="margin: 2rem" *ngIf="showConf">
-    <mat-card-title-group>
-      <mat-card-title>Configuration</mat-card-title>
-      <mat-card-subtitle>Image Index:
-        <code class="prettyprint">
-          {{ngxImageGallery.activeImageIndex}}
-        </code>
-      </mat-card-subtitle>
-    </mat-card-title-group>
-    <mat-card-content>
-      <mat-list *ngFor="let entry of conf | keys">
-        <mat-list-item>
-          <code class="prettyprint">
-            {{entry.key}}: {{entry.value}}
-          </code>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</div>
-
-
+<ngx-image-gallery #ngxImageGallery
+                   [images]="images"
+                   [conf]="conf"
+                   (onOpen)="galleryOpened($event)"
+                   (onClose)="galleryClosed()"
+                   (onImageClicked)="galleryImageClicked($event)"
+                   (onImageChange)="galleryImageChanged($event)"
+                   (onDelete)="deleteImage($event)">
+</ngx-image-gallery>

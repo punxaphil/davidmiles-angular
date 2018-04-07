@@ -10,7 +10,6 @@ import {DataService} from '../services/data.service';
 })
 export class ImagesComponent implements OnInit {
   @Input() imagesPath = '';
-  public showConf = false;
 
   @ViewChild('ngxImageGallery') ngxImageGallery: NgxImageGalleryComponent;
 
@@ -27,7 +26,7 @@ export class ImagesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getImageTitles(this.imagesPath + "/0-bild-titlar.json", titles => {
+    this.dataService.getImageTitles(this.imagesPath + '/0-bild-titlar.json', titles => {
       this.imagesTitles = titles;
       this.initGallery();
     }, errors => {
@@ -41,7 +40,7 @@ export class ImagesComponent implements OnInit {
         if (!x.path.match('/thumb') && !x.path.match('.json')) {
           const lastIndexOfSlash = x.download_url.lastIndexOf('/');
           const filename = x.download_url.substr(lastIndexOfSlash + 1);
-          let title = this.getTitle(x.path);
+          const title = this.getTitle(x.path);
           const image: GALLERY_IMAGE = {
             url: x.download_url,
             altText: x.name,
@@ -56,7 +55,7 @@ export class ImagesComponent implements OnInit {
   }
 
   getTitle(imagePath: string) {
-    let title = "";
+    let title = '';
     if (this.imagesTitles !== undefined && this.imagesTitles !== null) {
       this.imagesTitles.forEach(y => {
         if (y.url === imagePath) {
