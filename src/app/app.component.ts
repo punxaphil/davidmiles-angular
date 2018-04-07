@@ -23,7 +23,15 @@ export class AppComponent implements OnInit, OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
+  private static redirectHttpToHttps() {
+    const loc = window.location.href + '';
+    if (loc.indexOf('http://') === 0 && loc.indexOf('localhost') === -1) {
+      window.location.href = loc.replace('http://', 'https://');
+    }
+  }
+
   ngOnInit() {
+    AppComponent.redirectHttpToHttps();
     this.isLoggedIn = AuthorizationService.isLoggedIn();
     this.authorizationService.loggedInUpdated.subscribe((loggedIn: boolean) => this.isLoggedIn = loggedIn);
   }
