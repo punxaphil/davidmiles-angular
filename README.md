@@ -1,5 +1,5 @@
 # DavidMiles
-[![Build Status](https://travis-ci.org/johanfrick/davidmiles-angular.svg?branch=master)](https://travis-ci.org/johanfrick-angular/davidmiles)
+[![Build Status](https://travis-ci.org/johanfrick/davidmiles-angular.svg?branch=master)](https://travis-ci.org/johanfrick/davidmiles-angular)
 
 ## Pre-requisites:
 - node & npm
