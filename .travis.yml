@@ -11,7 +11,7 @@ before_script:
   - npm install
 
 script:
-  - ng build -aot --output-hashing=all
+  - ng build -prod --output-hashing=all
 
 addons:
   ssh_known_hosts: ssh.davidmiles.se
