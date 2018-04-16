@@ -19,7 +19,7 @@ export class VideoComponent implements OnInit {
       this.videos = [];
       this.videosIds.forEach(videoId => {
         const v: IVideo = {};
-        v.youtubeHtml = this.embedService.embed_youtube(videoId, { query: { autoplay: 1 }, attr: { width: "100%", height: 180 } });
+        v.youtubeHtml = this.embedService.embed_youtube(videoId, { query: { autoplay: 1 }, attr: { width: '100%', height: 180 } });
         this.dataService.getYouTubeVideoTitle(videoId,
           title => {
             v.title = title;
